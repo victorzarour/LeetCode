@@ -36,7 +36,5 @@ var addTwoNumbers = function(l1, l2) {
         counter2 = counter2 === null ? null : counter2.next
     }
     
-    if (counter1 === null)
-    
     return dummyHead.next
 };
