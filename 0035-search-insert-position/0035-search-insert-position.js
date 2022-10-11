@@ -5,18 +5,18 @@
  */
 var searchInsert = function(nums, target) {
   
-   i = 0;
+    let i = 0;
     let middle;
-    j = nums.length
-    while (i <= j ){
-        middle = Math.floor((i+j)/2);
-        if(nums[middle] === target){
+    let j = nums.length
+    
+    while (i <= j){
+        middle = Math.floor((i + j) / 2);
+        
+        if (nums[middle] === target) {
             return middle
-        }
-        if(nums[middle] < target){
+        } else if (nums[middle] < target) {
             i = middle + 1
-        }
-        else{
+        } else {
             j = middle - 1
         }
     }
