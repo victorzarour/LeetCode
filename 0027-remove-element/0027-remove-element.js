@@ -8,8 +8,8 @@ var removeElement = function(nums, val) {
     let low = 0
     let high = nums.length - 1
     
-    if (nums.length === 1 && nums[0] !== val) return nums
-    if (nums.length === 1 && nums[0] == val) return []
+    // if (nums.length === 1 && nums[0] !== val) return nums
+    // if (nums.length === 1 && nums[0] == val) return []
     
     while (low <= high){
         if (nums[low] == val && nums[high] !== val){
