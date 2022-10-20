@@ -5,8 +5,9 @@
 
 const lengthOfLongestSubstring = (s) => {
 
-    let maxLength = 0
+    let max = 0
     let start = 0
+    
     const map = new Map()
     
     for (let i = 0; i < s.length; i++){
@@ -15,11 +16,13 @@ const lengthOfLongestSubstring = (s) => {
         if (map.get(char) >= start){
             start = map.get(char) + 1
         }
-                 
+        
         map.set(char, i)
         
-        maxLength = Math.max(maxLength, i + 1 - start)
+        max = Math.max(max, i + 1 - start)       
+        
     }
     
-    return maxLength
+    
+    return max
 }
