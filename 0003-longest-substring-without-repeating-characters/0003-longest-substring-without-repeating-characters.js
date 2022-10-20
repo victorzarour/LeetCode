@@ -18,7 +18,7 @@ const lengthOfLongestSubstring = (s) => {
                  
         map.set(char, i)
         
-        maxLength = Math.max(maxLength, i - start + 1)
+        maxLength = Math.max(maxLength, i + 1 - start)
     }
     
     return maxLength
