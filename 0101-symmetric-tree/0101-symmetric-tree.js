@@ -13,7 +13,7 @@
 
 var isSymmetric = function(root) {
     
-    return isMirror(root, root);
+    return isMirror(root.left, root.right);
     
     function isMirror(leftNode, rightNode) {
         if (!leftNode && !rightNode) return true;
