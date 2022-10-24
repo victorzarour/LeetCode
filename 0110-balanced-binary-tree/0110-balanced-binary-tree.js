@@ -14,7 +14,9 @@ var isBalanced = function(root) {
     
     if (!root) return true
     
-    return Math.abs(maxDepth(root.right) - maxDepth(root.left)) < 2 && isBalanced(root.left) && isBalanced(root.right)
+    const difference = Math.abs(maxDepth(root.right) - maxDepth(root.left))
+    
+    return difference < 2 && isBalanced(root.left) && isBalanced(root.right)
     
 };
 
