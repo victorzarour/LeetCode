@@ -2,27 +2,26 @@
  * @param {number[]} nums
  * @return {number}
  */
-var mostFrequentEven = function (nums) {
-    let evenNumMap = new Map()
+var mostFrequentEven = function(nums) {
+    
+    const map = new Map()
     let max = 0
-	
-	//Popuates evenNumMap and finds the most frequent even number.
-    for (let num of nums) {
-        if (!evenNumMap.has(num) && num % 2 === 0) {
-            evenNumMap.set(num, 1)
-        } else if (evenNumMap.has(num) && num % 2 === 0) {
-            evenNumMap.set(num, evenNumMap.get(num) + 1)
-        }
-
-        if (evenNumMap.get(num) > max) max = evenNumMap.get(num)
+    
+    for (let num of nums){
+        
+        if (num % 2 == 0 && map.has(num)) map.set(num, map.get(num) + 1)
+        
+        else if (num % 2 == 0) map.set(num, 1)
+        
+        if (map.get(num) > max) max = map.get(num)
     }
-
+    
     let smallestMaxKey = Infinity
 	
-	//Finds the smallest key with the value max.
-    for (let [num, count] of evenNumMap) {
+    for (let [num, count] of map) {
         if (count === max && num < smallestMaxKey) smallestMaxKey = num
     }
 
     return smallestMaxKey === Infinity ? -1 : smallestMaxKey
+    
 };
