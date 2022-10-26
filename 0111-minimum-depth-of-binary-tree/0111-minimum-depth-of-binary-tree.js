@@ -11,9 +11,23 @@
  * @return {number}
  */
 var minDepth = function(root) {
-        if (!root) return 0;
+    if (root == null) return 0;
     
-        if ((!root.left && root.right) || (root.left && !root.right))
-        return Math.max(1 + minDepth(root.left), 1 + minDepth(root.right))
-        return Math.min(1 + minDepth(root.left), 1 + minDepth(root.right))
+    let min = Number.MAX_SAFE_INTEGER;
+    
+    findMin(root, 1);
+    
+    return min;
+    
+    function findMin(node, depth) {
+        // base
+        if (node == null) return 0;
+        
+        if (node.left == null && node.right == null) {
+            min = Math.min(min, depth);
+        }
+        
+        findMin(node.left, depth + 1);
+        findMin(node.right, depth + 1);
+    }
 };
