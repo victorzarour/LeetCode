@@ -12,6 +12,7 @@
  */
 var minDepth = function(root) {
         if (!root) return 0;
+    
         if ((!root.left && root.right) || (root.left && !root.right))
         return Math.max(1 + minDepth(root.left), 1 + minDepth(root.right))
         return Math.min(1 + minDepth(root.left), 1 + minDepth(root.right))
