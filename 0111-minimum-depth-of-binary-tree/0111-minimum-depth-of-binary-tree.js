@@ -10,10 +10,9 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var minDepth = function(r) {
-        if(!r)
-        return 0;
-        if((!r.left&&r.right)||(r.left&&!r.right))
-        return Math.max(1+minDepth(r.left),1+minDepth(r.right))
-        return Math.min(1+minDepth(r.left),1+minDepth(r.right))
+var minDepth = function(root) {
+        if (!root) return 0;
+        if ((!root.left && root.right) || (root.left && !root.right))
+        return Math.max(1 + minDepth(root.left), 1 + minDepth(root.right))
+        return Math.min(1 + minDepth(root.left), 1 + minDepth(root.right))
 };
