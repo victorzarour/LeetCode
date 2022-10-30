@@ -18,7 +18,7 @@ var hasPathSum = function(root, targetSum) {
     
     if (!root.left && !root.right) return targetSum == 0
     
-    return hasPathSum(root.right, targetSum) + hasPathSum(root.left, targetSum)
+    return hasPathSum(root.right, targetSum) || hasPathSum(root.left, targetSum)
     
 };
 
