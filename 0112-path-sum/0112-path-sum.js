@@ -12,13 +12,13 @@
  * @return {boolean}
  */
 var hasPathSum = function(root, targetSum) {
+    
     if (!root) return false
     
     targetSum -= root.val
     
-    if (!root.left && !root.right) return targetSum == 0
+    if (!root.right && !root.left) return targetSum == 0
     
-    return hasPathSum(root.right, targetSum) || hasPathSum(root.left, targetSum)
-    
+    return hasPathSum(root.right, targetSum) || hasPathSum(root.left, targetSum) 
 };
 
