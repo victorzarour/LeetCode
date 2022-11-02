@@ -9,7 +9,7 @@ var maxProfit = function(prices) {
     
     for (let price of prices){
         if (price < low) low = price
-        else if (price - low > profit) profit = price - low
+        if (price - low > profit) profit = price - low
     }
 
     return profit
