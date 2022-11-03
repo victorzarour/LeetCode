@@ -3,12 +3,25 @@
  * @return {boolean}
  */
 var uniqueOccurrences = function(arr) {
-    const obj = {};
     
-    for(let el of arr) {
-        obj[el] = obj[el] ? ++obj[el] : 1;
+    let map = new Map()
+    
+    for (num of arr){
+        if (!map.get(num)) map.set(num, 1)
+        else map.set(num, map.get(num) + 1)
     }
-    const output = Object.values(obj);
+
+    let array = []
     
-    return output.length == new Set(output).size
+    for (num of map.values()){
+        array.push(num)
+    }
+    
+    let sorted = array.sort()
+    
+    for (let i = 0; i < sorted.length; i++){
+        if (sorted[i] === sorted[i + 1]) return false
+    }
+    
+    return true
 };
