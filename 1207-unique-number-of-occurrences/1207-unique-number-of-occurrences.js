@@ -10,37 +10,9 @@ var uniqueOccurrences = function(arr) {
         object[num] = object[num] ? ++object[num] : 1
     }
     
-    let sorted = Object.values(object).sort()
+    const output = Object.values(object);
     
-    for (let i = 0; i < sorted.length; i++){
-        if (sorted[i] === sorted[i + 1]) return false
-    }
+    return output.length == new Set(output).size
     
-    return true
-    
-    
-    
-    
-    
-    
-//     let map = new Map()
-    
-//     for (num of arr){
-//         if (!map.get(num)) map.set(num, 1)
-//         else map.set(num, map.get(num) + 1)
-//     }
 
-//     let array = []
-    
-//     for (num of map.values()){
-//         array.push(num)
-//     }
-    
-//     let sorted = array.sort()
-    
-//     for (let i = 0; i < sorted.length; i++){
-//         if (sorted[i] === sorted[i + 1]) return false
-//     }
-    
-//     return true
 };
