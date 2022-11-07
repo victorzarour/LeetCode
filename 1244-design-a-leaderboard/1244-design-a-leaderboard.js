@@ -9,8 +9,7 @@ var Leaderboard = function() {
  */
 Leaderboard.prototype.addScore = function(playerId, score) {
     if (this.map.has(playerId)) score = this.map.get(playerId) + score;
-    
-    this.map.set(playerId, score);
+     this.map.set(playerId, score);
 };
 
 /** 
