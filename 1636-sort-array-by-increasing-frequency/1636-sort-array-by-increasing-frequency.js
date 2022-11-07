@@ -16,6 +16,6 @@ var frequencySort = function(nums) {
         }else{
           return map.get(a) - map.get(b)
         }
-      })
+      })    
     
 };
