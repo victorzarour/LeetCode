@@ -15,8 +15,7 @@
 var copyRandomBinaryTree = function(root) {
     
     if (!root) return null
-    
-    const cloneRoot = new NodeCopy()
+
     const map = new Map()
     const stack = [ root ]
     
