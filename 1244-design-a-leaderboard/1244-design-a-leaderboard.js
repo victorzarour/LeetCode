@@ -1,7 +1,5 @@
 var Leaderboard = function() {
-    
-        this.map = new Map();
-    
+    this.map = new Map();
 };
 
 /** 
@@ -11,12 +9,11 @@ var Leaderboard = function() {
  */
 Leaderboard.prototype.addScore = function(playerId, score) {
     if (this.map.has(playerId)) {
-    const val = this.map.get(playerId);
-    score = val + score;
+        const val = this.map.get(playerId);
+        score = val + score;
     } 
     
     this.map.set(playerId, score);
-    
 };
 
 /** 
