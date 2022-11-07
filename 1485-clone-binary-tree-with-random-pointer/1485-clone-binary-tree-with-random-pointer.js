@@ -15,13 +15,13 @@
 var copyRandomBinaryTree = function(root) {
     
     if (!root) return null
-
-    const map = new Map()
-    const stack = [ root ]
+    
+    const stack = [root]
+    const copy = new Map()
     
     while (stack.length > 0){
         const current = stack.pop()
-        map.set(current, new NodeCopy(current.val))
+        copy.set(current, new NodeCopy(current.val))
         
         if (current.left) stack.push(current.left)
         if (current.right) stack.push(current.right)
@@ -33,18 +33,15 @@ var copyRandomBinaryTree = function(root) {
         const current = stack.pop()
         
         if (current.left){
-            map.get(current).left = map.get(current.left)
+            copy.get(current).left = copy.get(current.left)
             stack.push(current.left)
-        } 
+        }
         if (current.right){
-            map.get(current).right = map.get(current.right)
+            copy.get(current).right = copy.get(current.right)
             stack.push(current.right)
-        } 
-        if (current.random){
-            map.get(current).random = map.get(current.random)
-        } 
+        }
+        if (current.random) copy.get(current).random = copy.get(current.random)
     }
     
-    return map.get(root)
-    
+    return copy.get(root)
 };
