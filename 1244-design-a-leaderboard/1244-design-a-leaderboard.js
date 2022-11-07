@@ -22,8 +22,9 @@ Leaderboard.prototype.top = function(K) {
     let sum = 0;
     let idx = 0;
     
-    while (K--) {
+    while (K > 0) {
         sum += arr[idx++];
+        K--
     }
     
     return sum;
