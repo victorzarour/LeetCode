@@ -8,8 +8,8 @@ var Leaderboard = function() {
  * @return {void}
  */
 Leaderboard.prototype.addScore = function(playerId, score) {
-    if (this.map.has(playerId)) score = this.map.get(playerId) + score;
-     this.map.set(playerId, score);
+    if (this.map.has(playerId)) this.map.set(playerId, this.map.get(playerId) + score);
+    else this.map.set(playerId, score);
 };
 
 /** 
