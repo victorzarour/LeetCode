@@ -11,8 +11,9 @@ var mostWordsFound = function(sentences) {
         count = 0
         for (let char of sentence){
             if (char === " ") count++
-            max = Math.max(max, count + 1)
+            
         }
+        max = Math.max(max, count + 1)
     }
     
     return max
