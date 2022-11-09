@@ -5,7 +5,7 @@
 const totalFruit = array => {
     
     let map = new Map()
-    let max = -1
+    let max = 0
     let start = 0
     
     for (let end = 0; end < array.length; end++){
