@@ -13,30 +13,28 @@
  * @return {boolean}
  */
 var isCousins = function(root, x, y) {
-  const queue = [root];
+    const queue = [ root ]
     
-  while (queue.length) {
-    const size = queue.length;
-    let foundX = false;
-    let foundY = false;
-
-    for (let i = 0; i < size; i++) {
-      const node = queue.shift();
-
-      if (node.left && node.right) {
-        if (
-          (node.left.val === x && node.right.val === y) ||
-          (node.left.val === y && node.right.val === x)
-        )
-          return false;
-      }
-
-      if (node.val === x) foundX = true;
-      if (node.val === y) foundY = true;
-      if (node.left) queue.push(node.left);
-      if (node.right) queue.push(node.right);
+    while (queue.length){
+        let qLength = queue.length;
+        let findX = false
+        let findY = false
+        
+        for (let i = 0; i < qLength; i++){
+            const current = queue.shift()
+            
+            if (current.right && current.left){
+                if ((current.right.val === x && current.left.val === y) || (current.right.val === y && current.left.val === x)) return false
+            }
+            
+            if (current.val === x) findX = true
+            if (current.val === y) findY = true
+            
+            if (current.right) queue.push(current.right)
+            if (current.left) queue.push(current.left)            
+        }
+        
+        if (findX && findY) return true
     }
-    if (foundX && foundY) return true;
-  }
-  return false;
+    return false
 };
