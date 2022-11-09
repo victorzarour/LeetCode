@@ -24,7 +24,10 @@ var isCousins = function(root, x, y) {
             const current = queue.shift()
             
             if (current.right && current.left){
-                if ((current.right.val === x && current.left.val === y) || (current.right.val === y && current.left.val === x)) return false
+                if ((current.right.val === x && current.left.val === y) 
+                                        || 
+                    (current.right.val === y && current.left.val === x)) 
+                return false
             }
             
             if (current.val === x) findX = true
