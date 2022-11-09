@@ -14,14 +14,15 @@
  */
 var isCousins = function(root, x, y) {
   const queue = [root];
+    
   while (queue.length) {
     const size = queue.length;
     let foundX = false;
     let foundY = false;
-    // iterate through one level
+
     for (let i = 0; i < size; i++) {
       const node = queue.shift();
-      // check if children are x and y
+
       if (node.left && node.right) {
         if (
           (node.left.val === x && node.right.val === y) ||
@@ -29,7 +30,7 @@ var isCousins = function(root, x, y) {
         )
           return false;
       }
-      // find x and y at the same level
+
       if (node.val === x) foundX = true;
       if (node.val === y) foundY = true;
       if (node.left) queue.push(node.left);
