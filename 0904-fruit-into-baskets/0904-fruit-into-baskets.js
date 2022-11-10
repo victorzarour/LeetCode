@@ -2,32 +2,25 @@
  * @param {number[]} fruits
  * @return {number}
  */
-const totalFruit = array => {
-    
+var totalFruit = function(fruits) {
     let map = new Map()
     let max = 0
     let start = 0
     
-    for (let end = 0; end < array.length; end++){
+    for (let end = 0; end < fruits.length; end++){
         
-        let currElement = array[end]
-        
-        map.set(currElement, map.get(currElement) + 1 || 1)
+        map.set(fruits[end], map.get(fruits[end]) + 1 || 1)
         
         while (map.size > 2){
+            if (map.get(fruits[start]) - 1 === 0) map.delete(fruits[start])
+            else map.set(fruits[start], map.get(fruits[start]) - 1)
             
-            let char = array[start]
+            start++            
             
-            let charCount = map.get(char)
-            
-            if (charCount - 1 === 0) map.delete(char)
-            
-            else map.set(char, charCount - 1)
-            
-            start++
         }
         
         max = Math.max(max, end + 1 - start)
+        
     }
     return max
 };
