@@ -4,46 +4,32 @@
  * @return {number}
  */
 var countComponents = function(n, edges) {
-    // create visited array
-    let visited = [];
-    // create graph
-    let graph = buildGraph(n, edges);
-    // create res
-    let res = 0;
-    
-    // mark visited with false
-    for (let i = 0; i < n; i ++) {
-        visited.push(false);
-    }
-    
-    // traverse graph
-    for (let i = 0; i < n; i ++) {
-        // not visited
-        if (visited[i] === false) {
-            res ++;
-            dfs(i, graph, visited);
-        }
-    }
-    return res;
+var count = 0;
+var isVisited = [];
+var graph = [];
+for(var j = 0; j < n; ++j) {
+    isVisited.push(false);
+    graph.push([]);
+}
+for(j = 0; j < edges.length; ++j) {
+    var one = edges[j][0];
+    var two = edges[j][1];
+    graph[one].push(two);
+    graph[two].push(one);
+}
+for(var i = 0; i < n; ++i) {
+    if(isVisited[i]) continue;
+    dfs(i, isVisited, graph);
+    count++;
+}
+return count;
 };
 
-const buildGraph = (n, edges) => {
-    let graph = Array.from({length: n}, () => []);
-    
-    for (let edge of edges) {
-        let [src, dist] = edge;
-        graph[src].push(dist);
-        graph[dist].push(src);
-    }
-    return graph
+function dfs(node, isVisited, graph) {
+isVisited[node] = true;
+var nodes = graph[node];
+for(var i = 0; i < nodes.length; ++i) {
+    if(isVisited[nodes[i]]) continue;
+    dfs(nodes[i], isVisited, graph);
 }
-
-const dfs = (index, graph, visited) => {
-    visited[index] = true;
-    let nodes = graph[index];
-    for (let i = 0; i < nodes.length; i ++) {
-        if (visited[nodes[i]] === false) {
-            dfs(nodes[i], graph, visited)
-        }
-    }
 }
