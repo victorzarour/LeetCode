@@ -5,7 +5,6 @@
  */
 var maximumUnits = function(boxTypes, truckSize) {
     let unitCount = 0
-    let boxCount = truckSize    
     
     const sortedMap = boxTypes.sort((a, b) => b[1] - a[1]);
 
@@ -20,7 +19,6 @@ var maximumUnits = function(boxTypes, truckSize) {
             truckSize -= 1
             }
         }
-        
     }
     return unitCount
 };
