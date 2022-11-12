@@ -7,11 +7,8 @@ var maximumUnits = function(boxTypes, truckSize) {
     let unitCount = 0
     let boxCount = truckSize    
     
-   
     const sortedMap = boxTypes.sort((a, b) => b[1] - a[1]);
-    
-    console.log(sortedMap)
-    
+
     for (let box of sortedMap){
         if (boxCount - box[0] >= 0){
             unitCount += (box[0] * box[1])
