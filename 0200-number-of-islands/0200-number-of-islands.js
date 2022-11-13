@@ -5,7 +5,7 @@
 
 function numIslands(grid) {
   const H = grid.length;
-  const W = H && grid[0].length;
+  const W = grid[0].length;
   let count = 0;
   
   for (let r = 0; r < H; r++) {
