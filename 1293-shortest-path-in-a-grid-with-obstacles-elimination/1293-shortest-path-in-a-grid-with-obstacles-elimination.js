@@ -3,34 +3,56 @@
  * @param {number} k
  * @return {number}
  */
+// var shortestPath = function(grid, k) {
+//   const visited = new Set()
+//   const queue = [[0, 0, 0, 0]]
+  
+//   while (queue.length){
+//     let [ row, col, distance, obstacles ] = queue.shift()
+    
+//     if (row === grid.length - 1 && col === grid[0].length - 1) return distance
+    
+//     const coordinates = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    
+//     for (let coordinate of coordinates){
+        
+//       const neighborRow = row + coordinate[0]
+//       const neighborCol = col + coordinate[1]
+      
+//       const position = `${neighborRow}, ${neighborCol}`
+      
+//       const bounds = neighborRow >= 0 && neighborCol >= 0 && neighborRow < grid.length && neighborCol < grid[0].length
+      
+//       if (grid[neighborRow][neighborCol] === 1) obstacles++
+
+//       if (bounds && !visited.has(position) && (grid[neighborRow][neighborCol] !== 1 || obstacles <= k)){
+//         visited.add(position)
+//         queue.push([neighborRow, neighborCol, distance + 1, obstacles])
+//       }
+//     }
+//   }
+//   return -1
+// };
+
 var shortestPath = function(grid, k) {
-    let X = grid.length;
-    let Y = grid[0].length;
+  const visited = new Set()
+  const queue = [ [0, 0, 0, 0] ]
+  
+  while (queue.length){
+    let [ row, col, distance, obstacles ] = queue.shift()
 
-    let visited = new Set();
-
-    let q = [{ x: 0, y: 0, s: 0, o: 0 }];
-    while (q.length !== 0) {
-        let cur = q.shift();
-        let coord = `${cur.x} ${cur.y} ${cur.o}`;
-        if (cur.x < 0 || cur.x === X || cur.y < 0 || cur.y === Y || visited.has(coord)|| cur.o > k) {
-            continue;
-        }
-
-        if (grid[cur.x][cur.y] === 1) {
-            ++cur.o;
-        }
-
-        if (cur.x === X - 1 && cur.y === Y - 1) {
-            return cur.s;
-        }
-
-        visited.add(coord);
-
-        q.push({ x: cur.x - 1, y: cur.y, s: cur.s + 1, o: cur.o });
-        q.push({ x: cur.x + 1, y: cur.y, s: cur.s + 1, o: cur.o });
-        q.push({ x: cur.x, y: cur.y - 1, s: cur.s + 1, o: cur.o });
-        q.push({ x: cur.x, y: cur.y + 1, s: cur.s + 1, o: cur.o });
-    }
-    return -1;
+    const position = `${row}, ${col}, ${obstacles}`
+      
+    if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || visited.has(position) || obstacles > k) continue
+    if (grid[row][col] === 1) obstacles++
+    if (row === grid.length - 1 && col === grid[0].length - 1) return distance
+      
+    visited.add(position)  
+      
+    queue.push([row + 1, col, distance + 1, obstacles])
+    queue.push([row - 1, col, distance + 1, obstacles])
+    queue.push([row, col + 1, distance + 1, obstacles])
+    queue.push([row, col - 1, distance + 1, obstacles])
+  }
+  return -1
 };
