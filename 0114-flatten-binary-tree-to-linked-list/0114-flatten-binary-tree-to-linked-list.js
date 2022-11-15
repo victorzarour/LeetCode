@@ -14,7 +14,7 @@ var flatten = function(root) {
     if (!root) return root
     
     let traversalNode = new TreeNode()
-    let stack = [root]
+    let stack = [ root ]
     
     while (stack.length > 0){
         let current = stack.pop()
