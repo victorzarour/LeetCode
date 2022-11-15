@@ -11,22 +11,21 @@
  * @return {void} Do not return anything, modify root in-place instead.
  */
 var flatten = function(root) {
-if(!root)
-    return;
-let traversalNode = new TreeNode();
-let stack = [root];
-while(stack.length>0){
-    let curr = stack.pop();
-    traversalNode.right = curr;
-    if(curr.right){
-        stack.push(curr.right);
+    if (!root) return root
+    let traversalNode = new TreeNode();
+    let stack = [root];
+    while(stack.length>0){
+        let curr = stack.pop();
+        traversalNode.right = curr;
+        if(curr.right){
+            stack.push(curr.right);
+        }
+        if(curr.left){
+            stack.push(curr.left);
+        }
+        curr.left = null;
+        curr.right = traversalNode;
+        traversalNode = curr;
     }
-    if(curr.left){
-        stack.push(curr.left);
-    }
-    curr.left = null;
-    curr.right = traversalNode;
-    traversalNode = curr;
-}
-traversalNode.right = null;
+    traversalNode.right = null;
 };
