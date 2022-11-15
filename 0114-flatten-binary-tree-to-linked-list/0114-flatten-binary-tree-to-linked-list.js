@@ -12,20 +12,23 @@
  */
 var flatten = function(root) {
     if (!root) return root
-    let traversalNode = new TreeNode();
-    let stack = [root];
-    while(stack.length>0){
-        let curr = stack.pop();
-        traversalNode.right = curr;
-        if(curr.right){
-            stack.push(curr.right);
-        }
-        if(curr.left){
-            stack.push(curr.left);
-        }
-        curr.left = null;
-        curr.right = traversalNode;
-        traversalNode = curr;
+    
+    let traversalNode = new TreeNode()
+    let stack = [root]
+    
+    while (stack.length > 0){
+        let current = stack.pop()
+    
+        traversalNode.right = current
+        
+        if (current.right) stack.push(current.right)
+        if (current.left) stack.push(current.left)
+        
+        current.left = null
+        current.right = traversalNode
+        
+        traversalNode = current
     }
-    traversalNode.right = null;
+    
+    traversalNode.right = null
 };
