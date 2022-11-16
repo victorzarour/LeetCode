@@ -11,7 +11,7 @@
  * @return {void} Do not return anything, modify root in-place instead.
  */
 var flatten = function(root) {
-    if (!root) return root
+    if (!root) return
         
     const stack = [ root ]
     let traversalNode = new TreeNode()
