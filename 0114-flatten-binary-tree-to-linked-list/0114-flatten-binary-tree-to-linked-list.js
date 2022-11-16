@@ -25,7 +25,7 @@ var flatten = function(root) {
         if (current.left) stack.push(current.left)
         
         current.left = null
-        current.right = traversalNode
+        // current.right = traversalNode
         
         traversalNode = current
     }
