@@ -14,7 +14,6 @@ var isAnagram = function(s, t) {
         if (map.get(word)) map.set(word, map.get(word) - 1)
         else map.set(word, 1)
     }
-    console.log(map)
     
     for (let count of map.values()){
         if (count !== 0) return false
