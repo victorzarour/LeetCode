@@ -31,6 +31,7 @@ const traverseGraph = (grid, row, col, island) => {
 
 const calculateDifference = (firstIsland, secondIsland) => {
     let min = Infinity
+    
     for (let i = 0; i < firstIsland.length; i++){
         for (let j = 0; j < secondIsland.length; j++){
             let difference = Math.abs(firstIsland[i][0] - secondIsland[j][0]) + Math.abs(firstIsland[i][1] - secondIsland[j][1]) - 1
