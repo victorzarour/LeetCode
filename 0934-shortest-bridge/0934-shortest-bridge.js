@@ -3,14 +3,14 @@
  * @return {number}
  */
 const shortestBridge = (grid) => {
-  let mainIsland;
+  let mainIsland
   for (let r = 0; r < grid.length; r += 1) {
     for (let c = 0; c < grid[0].length; c += 1) {
-      const possibleIsland = traverseIsland(grid, r, c, new Set());
-      if (possibleIsland.size > 0) {
-        mainIsland = possibleIsland;
-        break;
-      }
+      if (traverseIsland(grid, r, c, new Set()).size > 0){
+         mainIsland = traverseIsland(grid, r, c, new Set()) 
+         break; 
+      } 
+        
     }
   }
   
