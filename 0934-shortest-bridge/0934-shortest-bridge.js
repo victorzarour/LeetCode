@@ -16,9 +16,8 @@ var shortestBridge = function (grid) {
         }
     }
 
-
-    let diff = calculateDistance(bIsland, aIsland)
-    return diff
+    return calculateDistance(bIsland, aIsland)
+}
 
 
     function dfs(grid, row, col, result) {
@@ -33,6 +32,8 @@ var shortestBridge = function (grid) {
         dfs(grid, row, col + 1, result);
     }
 
+
+
     function calculateDistance(aDistances, bDistance) {
         let min = Infinity;
 
@@ -44,5 +45,5 @@ var shortestBridge = function (grid) {
         }
         return min
     }
-};
+
     
