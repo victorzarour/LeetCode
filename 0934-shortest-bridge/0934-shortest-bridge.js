@@ -27,6 +27,7 @@ const shortestBridge = (grid) => {
     
     const pos = row + ',' + col;
     if (grid[row][col] === 1 && !mainIsland.has(pos)) return distance - 1;
+      
     
     const deltas = [[-1, 0], [1, 0], [0, -1], [0, 1]];
     for (let delta of deltas) {
