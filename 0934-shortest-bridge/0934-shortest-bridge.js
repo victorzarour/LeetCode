@@ -15,6 +15,7 @@ var shortestBridge = function (grid) {
             }
         }
     }
+
     return calculateDistance(bIsland, aIsland)
 }
 
