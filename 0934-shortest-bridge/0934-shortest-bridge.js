@@ -3,65 +3,52 @@
  * @return {number}
  */
 
-const shortestBridge = (grid) => {
-  let mainIsland;
-  for (let r = 0; r < grid.length; r += 1) {
-    for (let c = 0; c < grid[0].length; c += 1) {
-      const possibleIsland = traverseIsland(grid, r, c, new Set());
-      if (possibleIsland.size > 0) {
-        mainIsland = possibleIsland;
-        break;
-      }
-    }
-  }
-  
-  const visited = new Set(mainIsland);
-  const queue = [];
-  for (let pos of mainIsland) {
-    const [ row, col ] = pos.split(',').map(Number);
-    queue.push([row, col, 0]);
-  }
-  
-  while (queue.length > 0) {
-    const [ row, col, distance ] = queue.shift();
-    
-    const pos = row + ',' + col;
-    if (grid[row][col] === 1 && !mainIsland.has(pos)) return distance - 1;
-      
-    
-    const deltas = [[-1, 0], [1, 0], [0, -1], [0, 1]];
-    for (let delta of deltas) {
-      const [ deltaRow, deltaCol ] = delta;
-      const neighborRow = row + deltaRow;
-      const neighborCol = col + deltaCol;
-      const neighborPos = neighborRow + ',' + neighborCol;
-      if (isInbounds(grid, neighborRow, neighborCol) && !visited.has(neighborPos)) {
-        visited.add(neighborPos);
-        queue.push([neighborRow, neighborCol, distance + 1]);
-      }
-    }
-  }
-};
+var shortestBridge = function (grid) {
+    let aIsland = [];
+    let bIsland = [];
 
-const isInbounds = (grid, row, col) => {
-  const rowInbounds = 0 <= row  && row < grid.length;
-  const colInbounds = 0 <= col && col < grid[0].length;
-  return rowInbounds && colInbounds;
-};
+    for (let row = 0; row < grid.length; row++) {
+        for (let col = 0; col < grid[0].length; col++) {
+            if (grid[row][col] === 1) {
+                if (!aIsland.length) dfs(grid, row, col, aIsland)
+                else if (!bIsland.length) dfs(grid, row, col, bIsland)
+            }
+        }
+    }
 
-const traverseIsland = (grid, row, col, visited) => {
-  if (!isInbounds(grid, row, col) || grid[row][col] === 0) return visited;
-  
-  const pos = row + ',' + col;
-  if (visited.has(pos)) return visited;
-  
-  visited.add(pos);
-  
-  traverseIsland(grid, row - 1, col, visited);
-  traverseIsland(grid, row + 1, col, visited);
-  traverseIsland(grid, row, col - 1, visited);
-  traverseIsland(grid, row, col + 1, visited);
-  
-  return visited;
+
+    let diff = aIsland.length > bIsland.length ? calculateDistance(bIsland, aIsland) : calculateDistance(aIsland, bIsland);
+    return diff
+
+
+    function dfs(A, i, j, result) {
+
+        if (i < 0 || j < 0 || i >= A.length || j >= A.length || A[i][j] != 1) return;
+
+        A[i][j] = 0;
+        result.push([i, j])
+
+        dfs(A, i - 1, j, result);
+        dfs(A, i + 1, j, result);
+        dfs(A, i, j - 1, result);
+        dfs(A, i, j + 1, result);
+    }
+
+
+
+    function calculateDistance(aDistances, bDistance) {
+        let min = Infinity;
+
+        for (let i = 0; i < aDistances.length; i++) {
+            for (let j = 0; j < bDistance.length; j++) {
+
+                //find distance and  -1 beacuse beacuse it includes on of the points
+                let calculateDiff = Math.abs(aDistances[i][0] - bDistance[j][0]) + Math.abs(aDistances[i][1] - bDistance[j][1]) - 1
+                min = Math.min(calculateDiff, min)
+            }
+        }
+
+        return min
+    }
 };
     
