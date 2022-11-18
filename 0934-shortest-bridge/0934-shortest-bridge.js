@@ -17,7 +17,7 @@ var shortestBridge = function (grid) {
     }
 
 
-    let diff = aIsland.length > bIsland.length ? calculateDistance(bIsland, aIsland) : calculateDistance(aIsland, bIsland);
+    let diff = calculateDistance(bIsland, aIsland)
     return diff
 
 
@@ -38,13 +38,10 @@ var shortestBridge = function (grid) {
 
         for (let i = 0; i < aDistances.length; i++) {
             for (let j = 0; j < bDistance.length; j++) {
-
-                //find distance and  -1 beacuse beacuse it includes on of the points
                 let calculateDiff = Math.abs(aDistances[i][0] - bDistance[j][0]) + Math.abs(aDistances[i][1] - bDistance[j][1]) - 1
                 min = Math.min(calculateDiff, min)
             }
         }
-
         return min
     }
 };
