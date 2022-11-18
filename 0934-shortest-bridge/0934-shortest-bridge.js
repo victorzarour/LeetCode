@@ -15,35 +15,32 @@ var shortestBridge = function (grid) {
             }
         }
     }
-
     return calculateDistance(bIsland, aIsland)
 }
 
 
-    function dfs(grid, row, col, result) {
-        if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || grid[row][col] != 1) return;
+function dfs(grid, row, col, result) {
+    if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || grid[row][col] != 1) return;
 
-        grid[row][col] = 0;
-        result.push([row, col])
+    grid[row][col] = 0;
+    result.push([row, col])
 
-        dfs(grid, row - 1, col, result);
-        dfs(grid, row + 1, col, result);
-        dfs(grid, row, col - 1, result);
-        dfs(grid, row, col + 1, result);
-    }
+    dfs(grid, row - 1, col, result);
+    dfs(grid, row + 1, col, result);
+    dfs(grid, row, col - 1, result);
+    dfs(grid, row, col + 1, result);
+}
 
+function calculateDistance(aDistances, bDistance) {
+    let min = Infinity;
 
-
-    function calculateDistance(aDistances, bDistance) {
-        let min = Infinity;
-
-        for (let i = 0; i < aDistances.length; i++) {
-            for (let j = 0; j < bDistance.length; j++) {
-                let calculateDiff = Math.abs(aDistances[i][0] - bDistance[j][0]) + Math.abs(aDistances[i][1] - bDistance[j][1]) - 1
-                min = Math.min(calculateDiff, min)
-            }
+    for (let i = 0; i < aDistances.length; i++) {
+        for (let j = 0; j < bDistance.length; j++) {
+            let calculateDiff = Math.abs(aDistances[i][0] - bDistance[j][0]) + Math.abs(aDistances[i][1] - bDistance[j][1]) - 1
+            min = Math.min(calculateDiff, min)
         }
-        return min
     }
+    return min
+}
 
     
