@@ -21,20 +21,17 @@ var shortestBridge = function (grid) {
     return diff
 
 
-    function dfs(A, i, j, result) {
+    function dfs(grid, row, col, result) {
+        if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || grid[row][col] != 1) return;
 
-        if (i < 0 || j < 0 || i >= A.length || j >= A.length || A[i][j] != 1) return;
+        grid[row][col] = 0;
+        result.push([row, col])
 
-        A[i][j] = 0;
-        result.push([i, j])
-
-        dfs(A, i - 1, j, result);
-        dfs(A, i + 1, j, result);
-        dfs(A, i, j - 1, result);
-        dfs(A, i, j + 1, result);
+        dfs(grid, row - 1, col, result);
+        dfs(grid, row + 1, col, result);
+        dfs(grid, row, col - 1, result);
+        dfs(grid, row, col + 1, result);
     }
-
-
 
     function calculateDistance(aDistances, bDistance) {
         let min = Infinity;
