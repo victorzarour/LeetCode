@@ -17,17 +17,16 @@ var shortestBridge = function(grid) {
     return calculateDistance(firstIsland, secondIsland)
 };
 
-const traverseGraph = (A, i, j, result) => {
-        if (i < 0 || j < 0 || i >= A.length || j >= A.length || A[i][j] != 1) return;
-
-        //mark as visited
-        A[i][j] = 0;
-        result.push([i, j])
-
-        traverseGraph(A, i - 1, j, result);
-        traverseGraph(A, i + 1, j, result);
-        traverseGraph(A, i, j - 1, result);
-        traverseGraph(A, i, j + 1, result);
+const traverseGraph = (grid, row, col, island) => {
+    if (row < 0 || col < 0 || row >= grid.length || col >= grid.length || grid[row][col] != 1) return;
+    
+    grid[row][col] = 0
+    island.push([row, col])
+    
+    traverseGraph(grid, row - 1, col, island)
+    traverseGraph(grid, row + 1, col, island)
+    traverseGraph(grid, row, col - 1, island)
+    traverseGraph(grid, row, col + 1, island)
 }
 
 const calculateDistance = (firstIsland, secondIsland) => {
