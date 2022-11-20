@@ -3,37 +3,47 @@
  * @param {number[][]} prerequisites
  * @return {number[]}
  */
+let visited;
+let graph;
+let stack;
+
 var findOrder = function(numCourses, prerequisites) {
-  const order = [];
-  const queue = [];
-  const graph = new Map();
-  const indegree = Array(numCourses).fill(0);
-
-  for (const [e, v] of prerequisites) {
-
-    if (graph.has(v)) {
-      graph.get(v).push(e);
-    } else {
-      graph.set(v, [e]);
+    
+    graph = new Map();
+    visited = new Array(numCourses).fill(0);
+    stack = new Array();
+    
+    for(let [v, e] of prerequisites){
+        if(graph.has(v)){
+            let values = graph.get(v);
+            values.push(e);
+            graph.set(v, values)
+        } else {
+            graph.set(v, [e])
+        }
     }
-    // build indegree array
-    indegree[e]++;
-  }
-
-  for (let i = 0; i < indegree.length; i++) {
-    if (indegree[i] === 0) queue.push(i);
-  }
-
-  while (queue.length) {
-    const v = queue.shift();
-    if (graph.has(v)) {
-      for (const e of graph.get(v)) {
-        indegree[e]--;
-        if (indegree[e] === 0) queue.push(e);
-      }
+    
+    for(let i = 0; i < numCourses; i++){
+        if(visited[i] == 0 && DFS(i)) return [];
     }
-    order.push(v);
-  }
+    
+    return stack;
+}
 
-  return numCourses === order.length ? order : [];
-};
+
+function DFS(index){
+    
+    visited[index] = 1;
+    let edges = graph.get(index);
+    
+    if(edges){
+        for(let e of edges){
+            if(visited[e] == 1) return true;
+            if(visited[e] == 0 && DFS(e)) return true
+        }  
+    }
+  
+    visited[index] = 2;
+    stack.push(index)
+    return false
+}
