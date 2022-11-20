@@ -10,7 +10,7 @@ var findOrder = function(numCourses, prerequisites) {
   const indegree = Array(numCourses).fill(0);
 
   for (const [e, v] of prerequisites) {
-    // build graph map
+
     if (graph.has(v)) {
       graph.get(v).push(e);
     } else {
