@@ -4,7 +4,15 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
-    const graph = createGraph(prerequisites)
+    const graph = {}
+    
+    for (let course of prerequisites){
+        const [ a, b ] = course
+        if (!graph[a]) graph[a] = []
+        if (!graph[b]) graph[b] = []
+        graph[a].push(b)
+    }
+    
     
     for (let course in graph){
         if (hasCycle(graph, new Set(), new Set(), course)) return false
@@ -24,17 +32,4 @@ const hasCycle = (graph, visited, visiting, course) => {
     
     visiting.delete(course)
     visited.add(course)
-}
-
-const createGraph = (prerequisites) => {
-    const graph = {}
-    
-    for (let course of prerequisites){
-        const [ a, b ] = course
-        if (!graph[a]) graph[a] = []
-        if (!graph[b]) graph[b] = []
-        graph[a].push(b)
-    }
-    
-    return graph
 }
