@@ -4,6 +4,9 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
+    const visited = new Set()
+    const visiting = new Set()
+    
     const graph = {}
     for (let  [ a, b ] of prerequisites){
         if (!graph[a]) graph[a] = []
@@ -12,7 +15,7 @@ var canFinish = function(numCourses, prerequisites) {
     }
     
     for (let course in graph){
-        if (hasCycle(graph, new Set(), new Set(), course)) return false
+        if (hasCycle(graph, visited, visiting, course)) return false
     }
     
     return true
