@@ -10,7 +10,7 @@ function findOrder(numCourses, prerequisites) {
   
   const adj = [...Array(numCourses)].map(r => []);
   for (let [u, v] of prerequisites) {
-    adj[v].push(u);
+    adj[u].push(v);
   }
   
   for (let c = 0; c < numCourses; c++) {
@@ -18,7 +18,7 @@ function findOrder(numCourses, prerequisites) {
       return [];
     }
   }
-  return res.reverse();
+  return res;
   
   function dfs(v) {
     if (seen.has(v)) {
