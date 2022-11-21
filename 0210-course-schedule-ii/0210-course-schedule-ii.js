@@ -3,47 +3,40 @@
  * @param {number[][]} prerequisites
  * @return {number[]}
  */
-let visited;
-let graph;
-let stack;
-
-var findOrder = function(numCourses, prerequisites) {
-    
-    graph = new Map();
-    visited = new Array(numCourses).fill(0);
-    stack = new Array();
-    
-    for(let [v, e] of prerequisites){
-        if(graph.has(v)){
-            let values = graph.get(v);
-            values.push(e);
-            graph.set(v, values)
-        } else {
-            graph.set(v, [e])
-        }
-    }
-    
-    for(let i = 0; i < numCourses; i++){
-        if(visited[i] == 0 && DFS(i)) return [];
-    }
-    
-    return stack;
-}
-
-
-function DFS(index){
-    
-    visited[index] = 1;
-    let edges = graph.get(index);
-    
-    if(edges){
-        for(let e of edges){
-            if(visited[e] == 1) return true;
-            if(visited[e] == 0 && DFS(e)) return true
-        }  
-    }
+function findOrder(numCourses, prerequisites) {
+  const seen = new Set();
+  const seeing = new Set();
+  const res = [];
   
-    visited[index] = 2;
-    stack.push(index)
-    return false
+  const adj = [...Array(numCourses)].map(r => []);
+  for (let [u, v] of prerequisites) {
+    adj[v].push(u);
+  }
+  
+  for (let c = 0; c < numCourses; c++) {
+    if (!dfs(c)) {
+      return [];
+    }
+  }
+  return res.reverse();
+  
+  function dfs(v) {
+    if (seen.has(v)) {
+      return true;
+    }
+    if (seeing.has(v)) {
+      return false;
+    }
+    
+    seeing.add(v);
+    for (let nv of adj[v]) {
+      if (!dfs(nv)) {
+        return false;
+      }
+    }
+    seeing.delete(v);
+    seen.add(v);
+    res.push(v);
+    return true;
+  }
 }
