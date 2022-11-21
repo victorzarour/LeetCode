@@ -5,14 +5,11 @@
  */
 var canFinish = function(numCourses, prerequisites) {
     const graph = {}
-    
-    for (let course of prerequisites){
-        const [ a, b ] = course
+    for (let  [ a, b ] of prerequisites){
         if (!graph[a]) graph[a] = []
         if (!graph[b]) graph[b] = []
         graph[a].push(b)
     }
-    
     
     for (let course in graph){
         if (hasCycle(graph, new Set(), new Set(), course)) return false
