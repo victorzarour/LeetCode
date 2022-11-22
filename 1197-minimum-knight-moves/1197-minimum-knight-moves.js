@@ -13,7 +13,16 @@ var minKnightMoves = function(x, y) {
         const [ r, c, steps ] = queue.shift()
         if (r === x && c === y) return steps
         
-        const neighbors = getNeighbors(r, c) 
+            const neighbors = [
+        [r + 1, c + 2],
+        [r + 1, c - 2],
+        [r - 1, c + 2],
+        [r - 1, c - 2],
+        [r + 2, c + 1],
+        [r + 2, c - 1],
+        [r - 2, c + 1],
+        [r - 2, c - 1]
+    ]
         
         for (let [ row, col ] of neighbors){
             const position = `${row}, ${col}`
@@ -25,16 +34,3 @@ var minKnightMoves = function(x, y) {
     }
 };
 
-const getNeighbors = (r, c) => {
-    const positions = [
-        [r + 1, c + 2],
-        [r + 1, c - 2],
-        [r - 1, c + 2],
-        [r - 1, c - 2],
-        [r + 2, c + 1],
-        [r + 2, c - 1],
-        [r - 2, c + 1],
-        [r - 2, c - 1]
-    ]
-    return positions
-}
