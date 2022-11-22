@@ -10,5 +10,5 @@ var fib = function(n) {
         nums[i] = nums[i - 1] + nums[i - 2]
     }
     
-    return nums[nums.length - 1]
+    return nums[n]
 };
