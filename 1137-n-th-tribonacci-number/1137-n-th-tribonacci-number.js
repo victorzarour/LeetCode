@@ -8,5 +8,6 @@ var tribonacci = function(n, memo = {}) {
     if (memo[n]) return memo[n]
     
     memo[n] = tribonacci(n - 3, memo) + tribonacci(n - 2, memo) + tribonacci(n - 1, memo)
+    
     return memo[n]
 };
