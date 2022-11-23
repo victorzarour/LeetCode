@@ -13,12 +13,11 @@
 //     return nums[n]
 // };
 
-var fib = function(n) {
-    const memo = {0: 0, 1: 1}
-
+var fib = function(n, memo = {}) {
+    if (n === 0 || n === 1) return n
     if (n in memo) return memo[n]
 
-    memo[n] = fib(n - 1) + fib(n - 2)
+    memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
 
     return memo[n]
 }
