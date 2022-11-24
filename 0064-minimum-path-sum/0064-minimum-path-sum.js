@@ -2,15 +2,20 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var minPathSum = function(grid, r = 0, c = 0, memo = {}) {
-    const pos = r + ',' + c
-    
-    if (r === grid.length || c === grid[0].length) return Infinity
-    if (r === grid.length - 1 && c === grid[0].length - 1) return grid[r][c]
-    if (pos in memo) return memo[pos]
-    
-    const down = minPathSum(grid, r + 1, c, memo)
-    const right = minPathSum(grid, r, c + 1, memo)
-    
-    return memo[pos] = grid[r][c] + Math.min(down, right)
+var minPathSum = function(grid) {
+	// [ [ 1, 4, 5 ],
+	//   [ 2, 8, 6 ],
+	//   [ 6, 8, 7 ]]
+	
+    if (grid.length===0)return 0;
+    for (let i=0; i<grid.length;i++){
+        for (let j=0; j<grid[i].length;j++){
+            if (!(i===0&&j===0)){
+                if (i===0) {grid[i][j]+=grid[i][j-1];}
+                else if (j===0) {grid[i][j]+=grid[i-1][j];}
+                else{ grid[i][j] += Math.min(grid[i][j-1], grid[i-1][j])}
+            }
+            if (i===grid.length-1 && j===grid[i].length-1) return grid[i][j]
+        }
+    }
 };
