@@ -2,15 +2,15 @@
  * @param {number} n
  * @return {number}
  */
-var numSquares = function(n, memo = {}) {
-  if (n === 0) return 0
-  if (n in memo) return memo[n]
+function numSquares(n) {
+  const dp = [0];
   
-  let min = Infinity
-  for (let i = 1; i <= Math.sqrt(n); i++){
-    const square = i * i
-    const numSq = 1 + numSquares(n - square, memo)
-    min = Math.min(min, numSq)
-  }  
-  return memo[n] = min
-};
+  for (let i = 1; i <= n; i++) {
+    dp[i] = Infinity;
+    for (let j = 1; j*j <= i; j++) {
+      dp[i] = Math.min(dp[i], dp[i-j*j]+1);
+    } 
+  }
+  
+  return dp[n];
+}
