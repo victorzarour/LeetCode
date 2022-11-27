@@ -3,23 +3,17 @@
  * @param {number[]} coins
  * @return {number}
  */
-var change = function(amount, coins) {
-	// there is only 1 way to make 0
-    if(amount === 0) return 1;
-	// if no coins, we can't make any amount
-    if(coins === 0) return 0;
-    
-    // initialise  dp array to 0
-    const dp = Array(amount + 1).fill(0);
-    
-    // start at 1 - there is always only 1 way to make zero
-    dp[0] = 1;
-    
-    for(let i = 0; i < coins.length; i++) {
-        const coin = coins[i];
-        for(let j = coins[i]; j <= amount; j++) {
-            dp[j] = dp[j-coin] + dp[j];
-        }
-    }
-    return dp[amount];
+var change = function(amount, coins, i = 0, memo = {}) {
+  const key = amount + ',' + i
+  if (key in memo) return memo[key]
+  if (amount === 0) return 1
+
+  const coin = coins[i]
+  
+  let total = 0
+  for (let qty = 0; qty * coin <= amount; qty++){
+    const remainder = amount - (qty * coin)
+    total += change(remainder, coins, i + 1, memo)
+  }
+  return memo[key] = total
 };
