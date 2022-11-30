@@ -6,7 +6,7 @@
 var longestCommonSubsequence = function(text1, text2) {
     const m = text1.length;
     const n = text2.length;
-    const memo = Array.from({ length: m }, () => new Uint16Array(n));
+    const memo = [...Array(m)].map(() => Array());
     
     function find(i, j){
         if (i >= text1.length || j >= text2.length) return 0
