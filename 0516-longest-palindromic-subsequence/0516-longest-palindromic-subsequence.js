@@ -4,7 +4,7 @@
  */
 var longestPalindromeSubseq = function(s) {
   
-    const memo = [...Array(s.length)].map(() => Array(3).fill(0));
+    const memo = [...Array(s.length)].map(() => Array(s.length).fill(0));
     
     function run(start, end) {
       if (memo[start][end]) return memo[start][end]
