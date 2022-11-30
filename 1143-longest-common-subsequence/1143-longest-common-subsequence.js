@@ -5,7 +5,6 @@
  */
 var longestCommonSubsequence = function(text1, text2) {
     const m = text1.length;
-    const n = text2.length;
     const memo = [...Array(m)].map(() => Array());
     
     function find(i, j){
