@@ -11,13 +11,9 @@ var longestPalindromeSubseq = function(s) {
         if(i > j) return 0;
         if(memo[i][j]) return memo[i][j]
         
-        let res;
-        
-        if(s[i] === s[j]) res = run(i+1, j-1) + 2;
-        else res = Math.max(run(i+1, j), run(i, j-1));
-		
-        memo[i][j] = res;
-        return res;
+        if(s[i] === s[j]) return memo[i][j] = run(i+1, j-1) + 2;
+        else return memo[i][j] = Math.max(run(i+1, j), run(i, j-1));
+
     }
     return run(0, s.length-1);
 };
