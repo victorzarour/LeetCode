@@ -12,5 +12,4 @@ var majorityElement = function(nums) {
     for (let [key, value] of map){
         if (value > nums.length / 2) return key
     }
-    
 };
