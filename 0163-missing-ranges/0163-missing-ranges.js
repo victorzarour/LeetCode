@@ -10,13 +10,12 @@ var findMissingRanges = function(nums, lower, upper) {
     let result = [];
     
     for (let i = 1; i < nums.length; i++) {
+        let num1 = nums[i - 1]
+        let num2 = nums[i] - 1;
     
-        if (nums[i] - 1 !== nums[i - 1]) {
-            
-            let num1 = nums[i - 1] + 1
-            let num2 = nums[i] - 1;
-            
-            result.push(num1 + (num1 == num2 ? "" : ("->" + num2)));
+        if (num1 !== num2) {
+
+            result.push(num1 + 1 + (num1 + 1 == num2 ? "" : ("->" + num2)));
         }
     }
     return result;
