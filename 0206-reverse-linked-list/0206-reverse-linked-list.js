@@ -24,8 +24,8 @@
 // };
 
 const reverseList = (head, previous = null) => {
-  if (!head) return previous
-  let next = head.next
-  head.next = previous  
-  return reverseList(next, head)
+    if (!head) return previous
+    const next = head.next
+    head.next = previous
+    return reverseList(next, head)
 }
