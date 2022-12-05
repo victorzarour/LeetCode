@@ -11,7 +11,6 @@ var scoreOfParentheses = function(s) {
       if (stack[stack.length - 1] === 0){
         stack.pop()
         stack.push(stack.pop() + 1)
-        console.log(stack)
       } 
       else stack.push((stack.pop() * 2) + stack.pop())
     }
