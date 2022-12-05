@@ -7,13 +7,12 @@ var scoreOfParentheses = function(s) {
   
   for (let char of s){
     if (char === '(') stack.push(0)
-    if (char === ')') {
-      if (stack[stack.length - 1] === 0){
-        stack.pop()
-        stack.push(stack.pop() + 1)
-      } 
-      else stack.push((stack.pop() * 2) + stack.pop())
+    else {
+      const popped = stack.pop()
+      if (popped === 0) stack[stack.length - 1] += 1
+      else stack[stack.length - 1] += 2 * popped
     }
   }
+      
   return stack.pop()
 };
