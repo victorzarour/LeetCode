@@ -8,6 +8,7 @@
 // };
 
 var isPalindrome = function(s) {
+    // s = s.toLowerCase().replace(/[^a-z0-9]/gi,'')
     s = s.toLowerCase().replace(/[_\W]/g,'')
     let i = 0
     let j = s.length - 1
