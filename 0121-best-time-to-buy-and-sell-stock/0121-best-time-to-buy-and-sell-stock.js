@@ -3,15 +3,12 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    
-    let low = Infinity
+    let lowPrice = Infinity
     let profit = 0
     
     for (let price of prices){
-        if (price < low) low = price
-        if (price - low > profit) profit = price - low
+        lowPrice = Math.min(lowPrice, price)
+        profit = Math.max(profit, price - lowPrice)
     }
-
     return profit
-    
 };
