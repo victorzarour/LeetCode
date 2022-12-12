@@ -23,3 +23,8 @@ var searchInsert = function(nums, target) {
     return i
     
 };
+
+// nums = [1,3,5,6]   7
+                 // m 
+                 //   i 
+                 //   j
