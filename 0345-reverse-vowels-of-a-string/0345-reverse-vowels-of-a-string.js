@@ -3,8 +3,7 @@
  * @return {string}
  */
 var reverseVowels = function(s) {
-    const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
-    const set = new Set(vowels)
+    const set = new Set(["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"])
     let first = 0
     let last = s.length - 1
     const split = s.split("")
