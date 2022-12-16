@@ -17,16 +17,3 @@ var isIsomorphic = function(s, t) {
     return true
 };
 
-    // for(let i = 0; i < s.length; i++) {
-    //     const letter = s[i];
-    //     const tLetter = t[i];
-    //     if (!obj2[tLetter]) {
-    //         obj2[tLetter] = letter;
-    //     }
-    //     if (!obj1[letter]) {
-    //         obj1[letter] = tLetter;
-    //     }
-    //     if (obj1[letter] !== tLetter || obj2[tLetter] !== letter) {
-    //         return false;
-    //     }
-    // }
