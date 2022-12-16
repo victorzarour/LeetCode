@@ -17,12 +17,12 @@ function sq(num) {
 
 function isHappy(n) {
     
-  let slow = fast = n;
+  let slow = n
+  let fast = sq(slow)
     
-  while (true) {
+  while (fast !== 1 && slow !== fast) {
     slow = sq(slow);
     fast = sq(sq(fast));
-    if (slow === fast) break;
   }
-  return slow === 1;
+  return fast === 1;
 }
