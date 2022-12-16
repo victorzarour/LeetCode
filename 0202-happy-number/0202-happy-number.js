@@ -9,8 +9,9 @@ function sq(num) {
   while (num > 0) {
     let d = num % 10;
     sum += d * d;
-    num = Math.floor(num/10);
+    num = Math.floor(num / 10);
   }
+    
   return sum;
 }
 
