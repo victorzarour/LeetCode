@@ -16,10 +16,10 @@ var moveZeroes = function(nums) {
     let last = 0;
     
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            [nums[i], nums[last]] = [nums[last], nums[i]];
-            last++;
+        if (nums[i] !== 0){
+            [nums[last], nums[i]] = [nums[i], nums[last]]
+            last++
         }
     }
-	return nums;
+    // return nums
 };
