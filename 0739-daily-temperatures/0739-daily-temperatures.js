@@ -14,8 +14,7 @@ var dailyTemperatures = function(temperatures) {
             count++
             j++
         }
-        if (j === length) count = 0
-        if (i === length - 1) count = 0
+        if (i === length - 1 || j === length) count = 0
         answer.push(count)        
     }
     
