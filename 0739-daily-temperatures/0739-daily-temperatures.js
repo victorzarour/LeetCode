@@ -2,15 +2,22 @@
  * @param {number[]} temperatures
  * @return {number[]}
  */
-var dailyTemperatures = function(T) {
-    return T.map((temp, idx) => {
-        let nextDay = 0
-        for(let i = idx + 1; i < T.length; i++) {
-            if(temp < T[i]) {
-                nextDay = i - idx
-                return nextDay
-            }
+var dailyTemperatures = function(temperatures) {
+    const answer = []
+    const length = temperatures.length
+    
+    for (let i = 0; i < length; i++){
+        let j = i + 1
+        let count = 1
+        while (j < length){
+            if (temperatures[j] > temperatures[i]) break
+            count++
+            j++
         }
-        return nextDay
-    })
+        if (j === length) count = 0
+        if (i === length - 1) count = 0
+        answer.push(count)        
+    }
+    
+    return answer
 };
