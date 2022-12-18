@@ -18,7 +18,7 @@ var validPalindrome = function(s) {
 }
 
 var _validPalindrome = function(s, i, j) {
-    while (i < j) {
+    while (i <= j) {
         if (s[i] !== s[j]) return false
         i++
         j--
