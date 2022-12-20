@@ -15,11 +15,6 @@ var canVisitAllRooms = function(rooms) {
             if (!set.has(key)) queue.push(key)
         }        
     }
-    
-    console.log(set)
-    return set.size === rooms.length
 
-    
-    
-    
+    return set.size === rooms.length    
 };
