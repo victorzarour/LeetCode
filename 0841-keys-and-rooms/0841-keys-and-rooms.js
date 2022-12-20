@@ -4,8 +4,7 @@
  */
 var canVisitAllRooms = function(rooms) {
     const queue = [0]
-    const set = new Set()
-    set.add(0)  
+    const set = new Set(queue)
 
     while (queue.length){
         const current = queue.shift()
