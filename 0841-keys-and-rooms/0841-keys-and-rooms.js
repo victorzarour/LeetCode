@@ -4,15 +4,14 @@
  */
 var canVisitAllRooms = function(rooms) {
     const queue = [0]
-    const set = new Set(queue)
+    const set = new Set()
 
     while (queue.length){
         const current = queue.shift()
-        // set.add(current)
+        set.add(current)
        
         for (let key of rooms[current]){
             if (!set.has(key)) queue.push(key)
-            set.add(key)
         }        
     }
     console.log(set)
