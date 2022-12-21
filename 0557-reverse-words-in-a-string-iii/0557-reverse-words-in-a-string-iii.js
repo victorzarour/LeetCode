@@ -2,8 +2,6 @@
  * @param {string} s
  * @return {string}
  */
-var reverseWords = function(s) {
-    const split = s.split(" ").map(word => word.split("").reverse().join(""))
-    
-    return split.join(" ")
+var reverseWords = function(s) { 
+    return s.split(" ").map(word => word.split("").reverse().join("")).join(" ")
 };
