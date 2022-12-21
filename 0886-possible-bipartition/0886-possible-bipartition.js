@@ -3,24 +3,24 @@
  * @param {number[][]} dislikes
  * @return {boolean}
  */
-var possibleBipartition = function(N, dislikes) {
+var possibleBipartition = function(n, dislikes) {
+    if (!dislikes.length) return true
     
-    let adjList = new Array(N+1);    
-    let color = new Array(N+1).fill(-1);
+    const graph = []
+    let color = new Array(n + 1).fill(-1);
     
-    for(let i = 1; i < N+1; i++){
-        adjList[i] = [];
+    for(let i = 1; i < n + 1; i++){
+        graph[i] = [];
     }
     
-    for(let i of dislikes){
-        let [u,v] = i;
-        adjList[u].push(v);
-        adjList[v].push(u);
+    for (let [ a, b ] of dislikes){     
+        graph[a].push(b)
+        graph[b].push(a)
     }
     
-    for(let i =1; i < N+1; i++){
+    for(let i = 1; i <= n; i++){
         if(color[i] == -1){
-            if(!isBipartite(adjList,color,i)){
+            if(!isBipartite(graph,color,i)){
                 return false;
             }
         }
