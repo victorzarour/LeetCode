@@ -26,6 +26,8 @@ var possibleBipartition = function(n, dislikes) {
         }
     }
     
+    console.log(graph)
+    
     return true;
 };
 
