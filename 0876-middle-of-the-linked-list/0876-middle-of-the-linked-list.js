@@ -19,6 +19,4 @@ var middleNode = function(head) {
     }
     
     return array[Math.floor(array.length / 2)]
-    
-    console.log(array)
 };
