@@ -11,7 +11,5 @@ var maximum69Number  = function(num) {
             break
         }
     }
-    
     return Number(nums.join(""))
-
 };
