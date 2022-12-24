@@ -2,12 +2,12 @@
  * @param {string[]} words
  * @return {string[]}
  */
-var commonChars = function(A) {
-    let common = A[0].split('').filter(char => {
-        for (var i = 1; i < A.length; i++) {
-            if (!A[i].includes(char)) return false;
+var commonChars = function(words) {
+    let common = words[0].split('').filter(char => {
+        for (let i = 1; i < words.length; i++) {
+            if (!words[i].includes(char)) return false;
             else {
-                A[i] = A[i].replace(char, '')
+                words[i] = words[i].replace(char, '')
             }
         }
         return true;
