@@ -8,9 +8,7 @@ var nextGreaterElement = function(nums1, nums2) {
     
     for (let i = 0; i < nums2.length; i++){
         let j = i + 1
-        while (nums2[j] <= nums2[i]){
-            j++
-        }       
+        while (nums2[j] <= nums2[i]) j++
         if (j === nums2.length) j = -1
         map.set(nums2[i], nums2[j] || j)
     }
