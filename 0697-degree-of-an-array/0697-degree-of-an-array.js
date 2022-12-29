@@ -13,6 +13,7 @@ var findShortestSubArray = function(nums) {
     console.log(obj)
     
     for (let [key, value] of Object.entries(obj)) {
+
         if (value.length === max) {
             result = Math.min(result, value[value.length - 1] - value[0] + 1);
         }
