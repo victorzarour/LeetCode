@@ -9,9 +9,7 @@ var findShortestSubArray = function(nums) {
         if (!obj[nums[i]]) {
             obj[nums[i]] = [i];
         } else {
-            let t = obj[nums[i]];
-            t.push(i);
-            obj[nums[i]] = t;
+            obj[nums[i]].push(i);
         }
     }
     
