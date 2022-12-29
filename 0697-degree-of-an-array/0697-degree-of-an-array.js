@@ -10,8 +10,6 @@ var findShortestSubArray = function(nums) {
         else obj[nums[i]].push(i);
     }
     
-    console.log(obj)
-    
     for (let [key, value] of Object.entries(obj)) {
 
         if (value.length === max) {
