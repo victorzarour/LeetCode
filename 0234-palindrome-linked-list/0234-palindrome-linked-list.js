@@ -10,21 +10,18 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    let array = []
     let current = head
-    
+    const array = []
+
     while (current){
         array.push(current.val)
         current = current.next
     }
-    
-    let max = array.length - 1
-    
-    for (let min = 0; min < max; min++){
-        if (array[min] !== array[max]) return false
-        max--
+
+    let last = array.length - 1
+    for (let i = 0; i < last; i++){
+        if (array[i] !== array[last]) return false
+        last--
     }
-    
     return true
-    
 };
