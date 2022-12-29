@@ -17,8 +17,11 @@ var isPalindrome = function(head) {
         array.push(current.val)
         current = current.next
     }
+    console.log(array)
+    console.log(array.join(','))
+    console.log(array.reverse())
     
-    return array.join(',') === array.reverse().join(',')
+    return array.join() === array.reverse().join()
 
     // let last = array.length - 1
     // for (let i = 0; i < last; i++){
