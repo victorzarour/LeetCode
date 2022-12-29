@@ -4,15 +4,18 @@
  */
 var findShortestSubArray = function(nums) {
     let obj = {}, max = 0, result = nums.length;
-    for(let i = 0; i < nums.length; i++) {
-        if(!obj[nums[i]]) {
+    
+    for (let i = 0; i < nums.length; i++) {
+        if (!obj[nums[i]]) {
             obj[nums[i]] = [i];
         } else {
-            let t = obj[nums[i]];
-            t.push(i);
-            obj[nums[i]] = t;
+            // let t = obj[nums[i]];
+            // t.push(i);
+            obj[nums[i]].push(i);
         }
     }
+    
+    console.log(obj)
     
     for (let [key, value] of Object.entries(obj)) {
         if(value.length === max) {
