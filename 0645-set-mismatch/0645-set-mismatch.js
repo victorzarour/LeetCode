@@ -3,18 +3,18 @@
  * @return {number[]}
  */
 var findErrorNums = function(nums) {
-    let dup, missing
+    let duplicate, missing
     
     const map = new Map()
     
     for (let num of nums) {
         if (!map.has(num)) map.set(num, 1)
-        else dup = num
+        else duplicate = num
     }
     
     for (let i = 1; i <= nums.length; i++) {
         if (!map.has(i)) missing = i
     }
     
-    return [dup, missing]
+    return [duplicate, missing]
 };
