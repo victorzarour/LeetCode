@@ -3,7 +3,6 @@
  * @return {number[]}
  */
 var findErrorNums = function(nums) {
-    let n = nums.length
     let dup, missing
     
     const map = {}
@@ -13,7 +12,7 @@ var findErrorNums = function(nums) {
         else dup = num
     }
     
-    for (let i = 1; i <= n; i++) {
+    for (let i = 1; i <= nums.length; i++) {
         if (!(i in map)) missing = i
     }
     
