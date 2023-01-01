@@ -4,8 +4,10 @@
  */
 var findErrorNums = function(nums) {
     let n = nums.length
-    const map = {}
     let dup, missing
+    
+    const map = {}
+    
     for (let num of nums) {
         if (!(num in map)) map[num] = 1
         else dup = num
