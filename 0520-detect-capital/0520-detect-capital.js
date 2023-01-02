@@ -11,8 +11,8 @@ var detectCapitalUse = function(word) {
         }
     } else {
         if (word[1] === word[1].toUpperCase()){
-            for (let i = 2; i < word.length; i++) {
-                if (word[i] === word[i].toLowerCase()) return false
+            for (let letter of word) {
+                if (letter === letter.toLowerCase()) return false
             }
         } else {
             for (let i = 2; i < word.length; i++) {
