@@ -14,17 +14,3 @@ var minDeletionSize = function(strs) {
     }
     return count
 };
-
-    // var minDeletionSize = function(A) {
-    //     let result = 0
-    //     const len = A[0].length
-    //     for(let i = 0; i < len; i++) {
-    //         for(let j = 1; j < A.length; j++){
-    //             if(A[j][i] < A[j - 1][i]){
-    //                 result += 1
-    //                 break
-    //             }
-    //         }
-    //     }
-    //     return result
-    // };
