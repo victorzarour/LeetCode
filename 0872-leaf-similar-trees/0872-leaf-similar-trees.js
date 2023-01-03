@@ -33,9 +33,7 @@ var leafSimilar = function(root1, root2) {
         if (current.right) queue.push(current.right)
         if (current.left) queue.push(current.left)
     }
-    console.log(leaves1)
-    console.log(leaves2)
-    
+
     if (leaves1.length !== leaves2.length) return false
     
     for (let i = 0; i < leaves1.length; i++) {
