@@ -14,15 +14,15 @@
 var leafSimilar = function(root1, root2) {
     const leaves1 = []
     const leaves2 = []
-    const queue = [ root1 ]
+    const stack = [ root1 ]
     const stack2 = [ root2 ]
     
-    while (queue.length) {
-        const current = queue.pop() 
+    while (stack.length) {
+        const current = stack.pop() 
         if (!current.left && !current.right) leaves1.push(current.val)
         
-        if (current.right) queue.push(current.right)
-        if (current.left) queue.push(current.left)
+        if (current.right) stack.push(current.right)
+        if (current.left) stack.push(current.left)
     }
         
     while (stack2.length) {
