@@ -17,7 +17,7 @@ var minimumRounds = function(tasks) {
             let number = (value - 1) / 3
             count += ((number - 1) + 2)
         }
-        else if (value % 3 == 2) count += ((value - 2) / 3) + 1      
+        else if (value % 3 == 2) count += (value - 2) / 3 + 1      
     }
     return count
 };
