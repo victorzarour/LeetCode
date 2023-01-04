@@ -12,7 +12,7 @@ var minimumRounds = function(tasks) {
     
     for (let [ key, value ] of map) {
         if (value < 2) return -1
-        else if (value === 2 || value === 3) {
+        else if (value === 2) {
             count++
             map.delete(key)
         }
