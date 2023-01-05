@@ -3,15 +3,16 @@
  * @return {number}
  */
 var findMinArrowShots = function(points) {
-    const sorted = points.sort((a,b) => a[1] - b[1])
-    let minArrows = 0, prev
+    const sorted = points.sort((a, b) => a[1] - b[1])
+    let arrows = 0, prev
     
     for (let [ start, end ] of points) {
         if (!prev || prev < start) {
-            minArrows++
+            arrows++
             prev = end
-        } 
+        }
     }
     
-    return minArrows
+    return arrows
+    console.log(sorted)
 };
