@@ -10,7 +10,7 @@ var findMinArrowShots = function(points) {
         if (!prev || prev < start) {
             minArrows++
             prev = end
-        } else prev = Math.min(prev, end)
+        } 
     }
     
     return minArrows
