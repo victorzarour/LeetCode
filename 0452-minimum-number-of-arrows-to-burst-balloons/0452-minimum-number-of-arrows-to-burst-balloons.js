@@ -12,7 +12,6 @@ var findMinArrowShots = function(points) {
             prev = end
         }
     }
-    
-    return arrows
     console.log(sorted)
+    return arrows
 };
