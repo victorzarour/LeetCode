@@ -8,7 +8,7 @@ var maxIceCream = function(costs, coins) {
     let max = 0
     console.log(costs)
     for (let cost of costs) {
-        if (coins < 1 || coins < cost) break
+        if (coins < cost) break
         max++
         coins -= cost
     }
