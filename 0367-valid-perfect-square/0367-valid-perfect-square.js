@@ -8,3 +8,4 @@ var isPerfectSquare = function(num) {
     }
     return false
 };
+
