@@ -25,7 +25,7 @@ const findContentChildren = (g, s) => {
     s.sort((a, b) => a - b);
     let gi = 0
     for (let si = 0; gi < g.length && si < s.length; ++si)
-        if (g[gi] <= s[si]) ++gi;
+        if (s[si] >= g[gi]) ++gi;
     return gi;
 };
 
