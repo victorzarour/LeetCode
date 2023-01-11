@@ -5,16 +5,17 @@
  * @return {number}
  */
 var minTime = function(n, edges, hasApple) {
-      let map = {}
+    let map = {}, check = {}, res = 0;
 
-    for(let [x,y] of edges){
-        if(!map[y]) map[y] = []
+    for (let [ x, y ] of edges){
+        if (!map[y]) map[y] = []
         map[y].push(x)
     }
-    let check = {}
-    let res =0;
-    for(let i =1; i<hasApple.length;i++){
-        if(hasApple[i]){
+    
+
+    for(let i =1; i<hasApple.length;i++) {
+        
+        if (hasApple[i]) {
             let curV = i;
             while(curV !=0 && !check[curV]){
                 res +=2;
