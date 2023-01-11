@@ -18,7 +18,7 @@ var minTime = function(n, edges, hasApple) {
         if (hasApple[i]) {
             let curV = i;
             while (curV != 0 && !check[curV]) {
-                res +=2;
+                res += 2;
                 check[curV] = 1;
                 curV = map[curV]
             }
