@@ -18,7 +18,5 @@ var maximumPopulation = function(logs) {
         if (value === Math.max(...map.values())) array.push(key)
     }
     
-    // return Math.min(...array)
-    return array.sort((a, b) => a-b)[0]
-
+    return Math.min(...array)
 };
