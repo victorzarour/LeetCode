@@ -12,12 +12,12 @@ var maximumPopulation = function(logs) {
         }
     }
     
-    const sortedMap = Array.from([...map.entries()].sort((a, b) => b[1] - a[1]))
+    // const sortedMap = Array.from([...map.entries()].sort((a, b) => b[1] - a[1]))
     
     const array = []
     
-    for (let [ key, value ] of sortedMap) {
-        if (value === sortedMap[0][1]) array.push(key)
+    for (let [ key, value ] of map) {
+        if (value === Math.max(...map.values())) array.push(key)
     }
     
     return Math.min(...array)
