@@ -5,7 +5,6 @@
 var maximumPopulation = function(logs) {
     
     const map = new Map()
-    const array0 = []
     
     for (let [ start, end ] of logs) {
         for (let i = start; i < end; i++){
