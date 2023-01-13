@@ -20,7 +20,6 @@ var maximumPopulation = function(logs) {
         if (value === sortedMap[0][1]) array.push(key)
     }
     
-    console.log(array)
     return Math.min(...array)
 
 };
