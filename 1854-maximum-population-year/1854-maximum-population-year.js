@@ -11,9 +11,7 @@ var maximumPopulation = function(logs) {
             map.set(i, map.get(i) + 1 || 1)
         }
     }
-    
-    // const sortedMap = Array.from([...map.entries()].sort((a, b) => b[1] - a[1]))
-    
+        
     const array = []
     
     for (let [ key, value ] of map) {
