@@ -12,8 +12,8 @@
  */
 var addTwoNumbers = function(l1, l2) {
     
-    let counter1 = l1
-    let counter2 = l2
+    let counter1 = l1;
+    let counter2 = l2;
     
     let dummyHead = new ListNode(null)
     let tail = dummyHead
