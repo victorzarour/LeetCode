@@ -12,5 +12,5 @@ var calPoints = function(operations) {
         else stack.push(Number(op))
     }
     
-   return stack.reduce((partialSum, a) => partialSum + a, 0)
+   return stack.reduce((a, b) => a + b, 0)
 };
