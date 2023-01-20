@@ -9,8 +9,8 @@ var findSubsequences = function(nums) {
     const backtrack = (startIndex) => {
         if (path.length >= 2) result.push([...path]);
         const used = new Set();
-        for(var i = startIndex; i < nums.length; i++) {
-            if(path.length > 0 && nums[i] < path[path.length - 1] || used.has(nums[i])) continue;
+        for (let i = startIndex; i < nums.length; i++) {
+            if (path.length > 0 && nums[i] < path[path.length - 1] || used.has(nums[i])) continue;
             used.add(nums[i]);
             path.push(nums[i]);
             backtrack(i + 1);
