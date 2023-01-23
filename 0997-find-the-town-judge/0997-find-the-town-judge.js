@@ -4,26 +4,24 @@
  * @return {number}
  */
 var findJudge = function(N, trust) {
-    // Initialize array with 1..N
-    // N + 1, so count is easier 
-    const counts = new Array(N+1).fill(0);
+    const truster = Array(N).fill(0); // keep track of count of people this person trusts
+    const trustee = Array(N).fill(0); // keep track of count of people that trust this person
     
-    // Iterate through N people    
-    for(let [i,j] of trust) {
-        // If the person trusts somebody, then it does not meet requirement 1
-        counts[i] -= 1
+    for(let i = 0; i < trust.length; i++) {
+        let [a, b] = trust[i];
+        a--; //get indexes correct
+        b--;
         
-        // Count the people they trust
-        counts[j] += 1
+        truster[a]++;
+        trustee[b]++;
     }
-
-    // If N-1 exists, then its the judge since the judge trusts no one except themselves
-    // and everyone else trusts the judge, then its N-1
-    for(let i = 1; i < counts.length; i++) {
-        if ((N-1) === counts[i]) {
-            return i;
+    
+    for(let i = 0; i < N; i++) {
+        if (truster[i] == 0 && trustee[i] == N - 1) {
+            return i + 1;
         }
     }
     
-    return -1
+    return -1;
+
 };
