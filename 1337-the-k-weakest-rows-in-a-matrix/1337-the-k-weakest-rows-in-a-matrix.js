@@ -25,6 +25,6 @@ var kWeakestRows = function(mat, k) {
     
     
         return [...map.keys()]
-        .sort((a,b) => map.get(a) !== map.get(b) ? map.get(a) - map.get(b) : a - b)
+        .sort((a,b) => map.get(a) === map.get(b) ? a - b : map.get(a) - map.get(b))
         .slice(0, k);
 };
