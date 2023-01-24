@@ -12,7 +12,7 @@ var kWeakestRows = function(mat, k) {
             if (person === 1) map.set(row, map.get(row) + 1 || 1)
         }
     }
-    console.log(map)
+
     const mapSort = new Map([...map.entries()].sort((a, b) => a[1] - b[1]));
    
     const array = []
