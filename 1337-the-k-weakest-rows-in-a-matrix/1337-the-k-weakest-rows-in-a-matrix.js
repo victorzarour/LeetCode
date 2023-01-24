@@ -13,17 +13,17 @@ var kWeakestRows = function(mat, k) {
         }
     }
 
-    const mapSort = new Map([...map.entries()].sort((a, b) => a[1] - b[1]));
+//     const mapSort = new Map([...map.entries()].sort((a, b) => a[1] - b[1]));
    
-    const array = []
+//     const array = []
     
-    for (let [ key, value ] of mapSort) {
-        array.push(key)
-    }
+//     for (let [ key, value ] of mapSort) {
+//         array.push(key)
+//     }
      
-    return array.slice(0, k)
+//     return array.slice(0, k)
     
-        // return [...map.keys()]
-        // .sort((a,b) => map.get(a) !== map.get(b) ? map.get(a) - map.get(b) : a - b)
-        // .slice(0, k);
+        return [...map.keys()]
+        .sort((a,b) => map.get(a) !== map.get(b) ? map.get(a) - map.get(b) : a - b)
+        .slice(0, k);
 };
