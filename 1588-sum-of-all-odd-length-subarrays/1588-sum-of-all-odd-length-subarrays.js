@@ -9,7 +9,7 @@ var sumOddLengthSubarrays = function(arr) {
         let sum = 0
         for (let j = i; j < arr.length; j++) {
             sum += arr[j]
-            finalSum += (j - i + 1) % 2 === 1 ? sum : 0
+            if ((j - i + 1) % 2 === 1) finalSum += sum
         }
     }
     return finalSum
