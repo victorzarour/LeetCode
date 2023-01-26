@@ -3,7 +3,6 @@
  * @return {number[][]}
  */
 var flipAndInvertImage = function(image) {
-    
     for (let row of image) {
         for (let start = 0, end = row.length - 1; start < end; start++) {
             [row[start], row[end]] = [row[end], row[start]]
