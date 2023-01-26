@@ -7,7 +7,6 @@
  * @return {number}
  */
 var findCheapestPrice = function(n, flights, src, dst, K) {
-    // 1. Build Graph
     const graph = buildGraph(flights, dst);
     if(graph === null) return -1;
     
