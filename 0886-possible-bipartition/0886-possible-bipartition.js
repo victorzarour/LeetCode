@@ -13,11 +13,7 @@ var possibleBipartition = function(n, dislikes) {
         graph[b].push(a)
     }
     
-    return canColor(graph)
-};
-
-const canColor = (graph) => {
-  const coloring = {}
+const coloring = {}
   
   for (let node in graph) {
     if (!(node in coloring) && !validate(graph, node, coloring, false)) return false
