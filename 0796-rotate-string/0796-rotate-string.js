@@ -4,9 +4,12 @@
  * @return {boolean}
  */
 var rotateString = function(s, goal) {
-    for (let i = 0; i < s.length; i++) {
-        const rotated = s.slice(i) + s.slice(0, i)
-        if (rotated === goal) return true
-    }
-    return false
+//     for (let i = 0; i < s.length; i++) {
+//         const rotated = s.slice(i) + s.slice(0, i)
+//         if (rotated === goal) return true
+//     }
+//     return false
+    
+    return (s + s).indexOf(goal) !== -1 && s.length === goal.length
 };
+
