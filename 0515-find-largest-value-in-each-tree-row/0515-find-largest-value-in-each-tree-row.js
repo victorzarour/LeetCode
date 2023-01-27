@@ -12,12 +12,12 @@
  */
 var largestValues = function(root) {
   if (!root) return []
-  const stack = [[ root, 0 ]], map = new Map(), array = []
+  const stack = [[ root, 0 ]], array = []
   let max = -Infinity
   
   while (stack.length) {
     const [ current, level ] = stack.pop()
-    max = Math.max(array[level] || current.val, current.val)
+    max = Math.max(array[level] || -Infinity, current.val)
     array[level] = max
         
     if (current.left) stack.push([ current.left, level + 1 ])
