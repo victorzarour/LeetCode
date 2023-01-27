@@ -13,7 +13,7 @@
 var largestValues = function(root) {
   if (!root) return []
   const stack = [[ root, 0 ]], array = []
-  let max = -Infinity
+  let max
   
   while (stack.length) {
     const [ current, level ] = stack.pop()
