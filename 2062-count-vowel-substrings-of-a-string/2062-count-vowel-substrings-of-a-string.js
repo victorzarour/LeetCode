@@ -9,7 +9,7 @@ var countVowelSubstrings = function(word) {
     
     for (let i = 0; i < word.length; i++) {
         set.clear()
-        for (let j = 0; j + i < word.length; j++) {
+        for (let j = 0; j < word.length; j++) {
             if (!vowels.has(word[i + j])) break
             set.add(word[i + j])
             if (set.size === vowels.size) count++
