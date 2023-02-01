@@ -8,8 +8,6 @@ var halvesAreAlike = function(s) {
     
     for (let i = 0; i < a.length; i++) {
         if (set.has(a[i])) count++
-    }  
-    for (let i = 0; i < a.length; i++) {
         if (set.has(b[i])) count--
     }  
     
