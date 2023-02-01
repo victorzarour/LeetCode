@@ -17,6 +17,7 @@ var gcdOfStrings = function(str1, str2) {
         const word = small.slice(0, i)
         const correctSmaller = !small.split(word).join('').length;
         const correctLarger = !long.split(word).join('').length;
+
         if (correctSmaller && correctLarger) return word;
     }
     return ""
