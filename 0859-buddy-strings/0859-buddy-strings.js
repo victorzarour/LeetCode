@@ -14,7 +14,7 @@ var buddyStrings = function(s, goal) {
         }
 
         return set.size < s.length;
-    }
+    } 
     
     let diff = []
     
