@@ -3,14 +3,14 @@
  * @return {number}
  */
 var jump = function(nums) {
-    let min = 0, curEnd = 0, curFar = 0
+    let min = 0, current = 0, farthest = 0
     
     for (let i = 0; i < nums.length - 1; i++) {
-        curFar = Math.max(curFar, i + nums[i])
+        farthest = Math.max(farthest, i + nums[i])
         
-        if (i === curEnd) {
+        if (i === current) {
             min++
-            curEnd = curFar
+            current = farthest
         }
     }
     return min
