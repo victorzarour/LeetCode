@@ -11,22 +11,17 @@
  * @return {number}
  */
 var sumOfLeftLeaves = function(root) {
-    const stack = [ [0, root] ], array = []
+    const stack = [ [0, root] ]
     let sum = 0
     
     while (stack.length) {
         const [ level, node ] = stack.pop()
-        if (level === 1 && !node.right && !node.left) array.push(node.val)
+        if (level === 1 && !node.right && !node.left) sum += node.val
         
         if (node.right) stack.push([0, node.right])
         if (node.left) stack.push([1, node.left])      
     }
     
-    console.log(array)
-    
-    for (let val of array) {
-        sum += val
-    }
     return sum
 };
 
