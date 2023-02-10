@@ -3,15 +3,15 @@
  * @return {number}
  */
 var longestPalindrome = function(s) {
-    const set = new Set();
-    let count = 0;
+    const set = new Set()
+    let count = 0
     
-    for (let char of s) {
-        if (set.has(char)) {
-			count += 2;
-            set.delete(char);
-        } 
-		else set.add(char);
+    for (let letter of s) {
+        if (set.has(letter)) {
+            count += 2
+            set.delete(letter)
+        } else set.add(letter)
     }
-    return count + (set.size > 0 ? 1 : 0);
+    
+    return count + (set.size > 0 ? 1 : 0)
 };
