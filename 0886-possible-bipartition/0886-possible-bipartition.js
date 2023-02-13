@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 var possibleBipartition = function(n, dislikes) {
-    const graph = {}
+    const graph = {}, coloring = {}
 
     for (let [ a, b ] of dislikes){
         if (!(a in graph)) graph[a] = []
@@ -12,21 +12,20 @@ var possibleBipartition = function(n, dislikes) {
         graph[a].push(b) 
         graph[b].push(a)
     }
+
+    for (let node in graph) {
+        if (!(node in coloring) && !validate(graph, node, coloring, false)) return false
+    }
     
-const coloring = {}
-  
-  for (let node in graph) {
-    if (!(node in coloring) && !validate(graph, node, coloring, false)) return false
-  }
-  return true
+    return true
 };
 
 const validate = (graph, node, coloring, currentColor) => {
-  if (node in coloring) return currentColor === coloring[node];
-  coloring[node] = currentColor
-  
-  for (let neighbor of graph[node]) {
-    if (!validate(graph, neighbor, coloring, !currentColor)) return false
-  }
-  return true
+    if (node in coloring) return currentColor === coloring[node];
+    coloring[node] = currentColor
+
+    for (let neighbor of graph[node]) {
+        if (!validate(graph, neighbor, coloring, !currentColor)) return false
+    }
+    return true
 }
