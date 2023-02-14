@@ -19,9 +19,7 @@ var maxDepth = function(root) {
         
         if (depth > maxDepth) maxDepth = depth
         
-        node.children.forEach(child => {
-            traverseAndUpdateMaxDepth(child, depth);
-        })   
+        node.children.forEach(child => traverseAndUpdateMaxDepth(child, depth))   
     }
     
     traverseAndUpdateMaxDepth(root, 0);
