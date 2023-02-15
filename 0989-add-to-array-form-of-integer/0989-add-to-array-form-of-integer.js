@@ -8,7 +8,5 @@ var addToArrayForm = function(num, k) {
     
     const sum = BigInt(num.join("")) + BigInt(k)
     
-    const array = Array.from(String(sum), num => Number(num))
-    
-    return array
+    return Array.from(String(sum), num => Number(num))
 };
