@@ -36,7 +36,7 @@ var minDiffInBST = function(root) {
         if (!node) return;
         
         getMin(node.right);
-        if (min > prev - node.val) min = prev - node.val;
+        min = Math.min(min, prev - node.val);
     
         prev = node.val;
         getMin(node.left);
