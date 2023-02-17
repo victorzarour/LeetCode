@@ -33,7 +33,7 @@ var minDiffInBST = function(root) {
     let min = Infinity, prev = Infinity
     
     const getMin = function(node) {
-        if (!node) return;
+        if (!node) return 0;
         
         getMin(node.right);
         min = Math.min(min, prev - node.val);
