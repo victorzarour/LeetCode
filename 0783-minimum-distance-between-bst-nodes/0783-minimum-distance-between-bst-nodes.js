@@ -28,7 +28,5 @@ var minDiffInBST = function(root) {
             min = Math.min(min, Math.abs(values[i] - values[j]))
         }   
     }
-    
     return min
-    console.log(values)
 };
