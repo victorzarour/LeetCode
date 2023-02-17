@@ -11,22 +11,37 @@
  * @return {number}
  */
 var minDiffInBST = function(root) {
-    const stack = [ root ], values = []
+//     const stack = [ root ], values = []
     
-    while (stack.length) {
-        const current = stack.pop()
-        values.push(current.val)
+//     while (stack.length) {
+//         const current = stack.pop()
+//         values.push(current.val)
         
-        if (current.right) stack.push(current.right)
-        if (current.left) stack.push(current.left)
+//         if (current.right) stack.push(current.right)
+//         if (current.left) stack.push(current.left)
+//     }
+    
+//     let min = Infinity
+    
+//     for (let i = 0; i < values.length; i++) {
+//         for (let j = 1; j < values.length && j !== i; j++) {
+//             min = Math.min(min, Math.abs(values[i] - values[j]))
+//         }   
+//     }
+//     return min
+    
+    let min = Infinity, prev = Infinity
+    
+    const getMin = function(node) {
+        if (!node) return;
+        
+        getMin(node.right);
+        if (min > prev - node.val) min = prev - node.val;
+    
+        prev = node.val;
+        getMin(node.left);
     }
     
-    let min = Infinity
-    
-    for (let i = 0; i < values.length; i++) {
-        for (let j = 1; j < values.length && j !== i; j++) {
-            min = Math.min(min, Math.abs(values[i] - values[j]))
-        }   
-    }
-    return min
+    getMin(root);
+    return min;
 };
