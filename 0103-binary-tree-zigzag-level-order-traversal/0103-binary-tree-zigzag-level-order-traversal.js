@@ -16,13 +16,8 @@ var zigzagLevelOrder = function(root) {
     
     while (queue.length) {
         const [ current, level ] = queue.shift()
-        if (!vals[level]) { 
-            vals.push([current.val])
-        }
-        else {
-            level % 2 === 0 ? vals[level].unshift(current.val) : vals[level].push(current.val)  
-        } 
-        
+        if (!vals[level]) vals.push([current.val])
+        else level % 2 === 0 ? vals[level].unshift(current.val) : vals[level].push(current.val)  
         
         if (current.right) queue.push([ current.right, level + 1 ])
         if (current.left) queue.push([ current.left, level + 1 ])
