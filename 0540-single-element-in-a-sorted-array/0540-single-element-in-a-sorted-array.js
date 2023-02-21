@@ -4,13 +4,13 @@
  */
 
 var singleNonDuplicate = function(nums) {
-    let low = 0, high = nums.length - 1
+    let lo = 0, hi = nums.length - 1
     
-    while (low < high) {
-        let mid = (high + low) / 2
+    while (lo < hi) {
+        let mid = (hi + lo) / 2
         if (mid % 2 === 1) mid--
-        if (nums[mid] === nums[mid + 1]) low = mid + 2
-        else high = mid
+        if (nums[mid] === nums[mid + 1]) lo = mid + 2
+        else hi = mid
     }
-    return nums[low]
+    return nums[lo]
 }
