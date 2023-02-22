@@ -10,7 +10,6 @@
     
 //     while (minCapacity < maxCapacity) {
 //         let midCapacity = Math.floor((maxCapacity + minCapacity) / 2)
-        
 //         let sum = 0, count = 1
         
 //         for (let weight of weights) {
