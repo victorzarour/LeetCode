@@ -24,31 +24,3 @@ var shipWithinDays = function(weights, days) {
     }
     return low
 };
-
-// function shipWithinDays(weights, days) {
-//   let low = Math.max(...weights);
-//   let high = weights.reduce((acc, cur) => acc + cur);
-
-//   while (low < high) {
-//     const mid = Math.floor((low + high) / 2);
-//     let sum = 0;
-//     let count = 1;
-
-//     for (let i = 0; i < weights.length; i++) {
-//       if (sum + weights[i] > mid) {
-//         count++;
-//         sum = weights[i];
-//       } else {
-//         sum += weights[i];
-//       }
-//     }
-
-//     if (count > days) {
-//       low = mid + 1;
-//     } else {
-//       high = mid;
-//     }
-//   }
-
-//   return low;
-// }
