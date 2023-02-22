@@ -5,8 +5,8 @@
  */
 var shipWithinDays = function(weights, days) {
     
-  let low = Math.max(...weights);
-  let high = weights.reduce((acc, cur) => acc + cur);
+    let low = Math.max(...weights)
+    let high = weights.reduce((sum, a) => sum + a)
     
     while (low < high) {
         let mid = Math.floor((high + low) / 2)
