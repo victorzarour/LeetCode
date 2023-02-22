@@ -13,10 +13,11 @@ var shipWithinDays = function(weights, days) {
         let sum = 0, count = 1
         
         for (let weight of weights) {
-            if (sum + weight > mid) {
+            sum += weight
+            if (sum > mid) {
                 count++
                 sum = weight
-            } else sum += weight
+            }
         }
         
         if (count > days) low = mid + 1
@@ -28,30 +29,3 @@ var shipWithinDays = function(weights, days) {
 
 //  weights = [1,2,3,4,5,6,7,8,9,10]
 //  10, 55
-
-// var shipWithinDays = function(weights, D) {
-    
-//     function getDays(capacity) {
-//         let days = 1, total = 0;
-        
-//         for(let n of weights) {
-//             total += n;
-//             if(total > capacity) {
-//                 total = n;
-//                 days++;
-//             }
-//         }
-//         return days;
-//     }
-    
-//     let start = Math.max(...weights), 
-//         end = weights.reduce((acc, cur) => acc + cur, 0);
-    
-//     while(start < end) {
-//         const mid = Math.floor((end+start)/2);
-//         const days = getDays(mid);
-//         if(days > D) start = mid+1;
-//         else end = mid;
-//     }
-//     return end;
-// };
