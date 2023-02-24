@@ -24,19 +24,3 @@ var guessNumber = function(n) {
     return min
 };
 
-//   let r = n
-//   let l = 1
-//   let mid = 0
-//     while(l <= r){
-//       mid = Math.floor((l+r)/2)
-//       let res = guess(mid)
-//       if(res === 0){
-//        return mid
-//       }else if(res === 1){ /// higher
-//         l = mid+1
-//       }else{
-//         r = mid-1;
-//       }
-//     }    
-//   return mid
-// };
