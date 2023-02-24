@@ -13,13 +13,11 @@
  */
 var closestValue = function(root, target) {
     const stack = [ root ]
-    let closest, diff = Infinity
+    let closest = root.val
     
     while (stack.length) {
         const current = stack.pop()
-        let currentDiff = Math.abs(current.val - target)
-        if (currentDiff < diff) {
-            diff = currentDiff
+        if (Math.abs(current.val - target) < Math.abs(closest - target)) {
             closest = current.val
         }
         
@@ -28,3 +26,18 @@ var closestValue = function(root, target) {
     }
     return closest
 };
+
+// var closestValue = function(root, target) {
+// 	let closest = root.val
+
+// 	function dfs(node){
+// 		if(!node) return 
+// 		if(Math.abs(node.val - target) < Math.abs(closest - target)) closest = node.val
+
+// 		if(node.val > target) return dfs(node.left)
+// 		if(node.val < target) return dfs(node.right)
+// 	}
+
+// 	dfs(root)
+// 	return closest
+// };
