@@ -17,8 +17,9 @@ var closestValue = function(root, target) {
     
     while (stack.length) {
         const current = stack.pop()
-        if (Math.abs(current.val - target) < diff) {
-            diff = Math.abs(current.val - target)
+        let currentDiff = Math.abs(current.val - target)
+        if (currentDiff < diff) {
+            diff = currentDiff
             closest = current.val
         }
         
