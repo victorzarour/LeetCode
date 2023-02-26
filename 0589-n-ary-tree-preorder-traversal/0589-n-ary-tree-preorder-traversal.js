@@ -36,7 +36,7 @@ var preorder = function(root) {
     while(stack.length > 0) {
         let node = stack.pop();
         order.push(node.val);
-        let children = node.children;
+        // let children = node.children;
         for (let i = node.children.length - 1; i >= 0; i--) {
             stack.push(node.children[i]);    
         }
