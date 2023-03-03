@@ -3,14 +3,11 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    
     const brackets = {
         "(":")",
         "{":"}",
         "[":"]"
     }
-
-    
     const stack = []
     
     for (let char of s){
