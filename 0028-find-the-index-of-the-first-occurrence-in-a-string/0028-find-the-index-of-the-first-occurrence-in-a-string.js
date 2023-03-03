@@ -8,11 +8,11 @@ var strStr = function(haystack, needle) {
 
     for (let i = 0; i < haystack.length; i++) {
         if (haystack[i] === needle[0]) {
-            let index = i, ind = 0, indie = i
-            while (haystack[indie] === needle[ind]){
-                indie++;
-                ind++;
-                if (ind === needle.length) return index
+            let firstOccurrence = i, hayStackI = i, needleI = 0
+            while (haystack[hayStackI] === needle[needleI]){
+                hayStackI++;
+                needleI++;
+                if (needleI === needle.length) return firstOccurrence
             }
         }
     }
