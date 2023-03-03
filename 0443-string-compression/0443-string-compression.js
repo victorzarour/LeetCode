@@ -10,15 +10,12 @@ var compress = function(chars) {
         
         while (chars[i] === chars[i + count]) count++
         
-        chars[res] = chars[i]
-        res++
+        chars[res++] = chars[i]
         
-        if (count > 1) String(count).split("").forEach(char => {
-            chars[res] = char
-            res++
-        })
+        if (count > 1) String(count).split("").forEach(char => chars[res++] = char)
         
         i += count
     }
+    console.log(chars)
     return res
 };
