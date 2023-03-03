@@ -8,7 +8,7 @@ var compress = function(chars) {
     while (i < chars.length) {
         let count = 1
         
-        while (chars[i + count] === chars[i]) count++
+        while (chars[i] === chars[i + count]) count++
         
         chars[res++] = chars[i]
         
