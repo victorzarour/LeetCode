@@ -13,7 +13,10 @@ var compress = function(chars) {
         chars[res] = chars[i]
         res++
         
-        if (count > 1) String(count).split("").forEach(char => chars[res++] = char)
+        if (count > 1) String(count).split("").forEach(char => {
+            chars[res] = char
+            res++
+        })
         
         i += count
     }
