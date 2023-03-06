@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var lengthOfLIS = function(nums, i = 0, previous = -Infinity, memo = {}) {
+var lengthOfLIS = function(nums) {
     const table = Array(nums.length).fill(1);
     let max = 1
 
