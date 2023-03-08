@@ -31,10 +31,7 @@ var searchRange = function(nums, target) {
     
     let last = find(nums, target, false)
     
-    let left = 0, right = nums.length - 1
-    
     return [first, last]
-    
 };
 
 
