@@ -18,11 +18,13 @@ var searchRange = function(nums, target) {
                     if (mid === right || nums[mid + 1] !== target) return mid
                     left = mid + 1
                 }
-            } else if (nums[mid] > target) right = mid - 1
+            } 
+            else if (nums[mid] > target) right = mid - 1
             else left = mid + 1 
         }
         return -1
     }
+    
     let first = find(nums, target, true)
     
     if (first === -1) return [-1, -1]
