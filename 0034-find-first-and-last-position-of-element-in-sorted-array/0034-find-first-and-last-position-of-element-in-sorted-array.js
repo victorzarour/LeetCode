@@ -12,7 +12,7 @@ var searchRange = function(nums, target) {
 
             if (nums[mid] === target) {
                 if (isFirst) {
-                    if (mid === left || nums[mid - 1] !== target) return mid
+                    if ( nums[mid - 1] !== target) return mid
                     right = mid - 1
                 } else {
                     if (mid === right || nums[mid + 1] !== target) return mid
