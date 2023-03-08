@@ -37,4 +37,10 @@ var shipWithinDays = function(weights, days) {
 // 10 15
 //   12
 
+// 13 15
+//   14
+
+// 15 15
+// return 1
+
 
