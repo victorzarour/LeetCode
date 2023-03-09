@@ -16,7 +16,6 @@ var detectCycle = function(head) {
     while (current) {
         if (visited.has(current)) return current
         visited.add(current)
-        
         current = current.next       
     }
     return null
