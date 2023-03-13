@@ -12,13 +12,19 @@
  */
 
 var isSymmetric = function(root) {
-    
-    return isMirror(root.left, root.right);
-    
-    function isMirror(leftNode, rightNode) {
-        if (!leftNode && !rightNode) return true;
-        if (leftNode && !rightNode || !leftNode && rightNode || leftNode.val !== rightNode.val) return false
-        
-        return isMirror(leftNode.right, rightNode.left) && isMirror(leftNode.left, rightNode.right);
+    const isMirror = (left, right) => {
+        if (!left && !right) return true
+        if (!left && right || left && !right || left.val !== right.val) return false
+        return isMirror(left.right, right.left) && isMirror(left.left, right.right)
     }
+    return isMirror(root.left, root.right) 
 };
+    
+//         return isMirror(root.left, root.right);
+    
+//     function isMirror(leftNode, rightNode) {
+//         if (!leftNode && !rightNode) return true;
+//         if (leftNode && !rightNode || !leftNode && rightNode || leftNode.val !== rightNode.val) return false
+        
+//         return isMirror(leftNode.right, rightNode.left) && isMirror(leftNode.left, rightNode.right);
+//     }
