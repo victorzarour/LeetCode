@@ -14,7 +14,7 @@
 var isSymmetric = function(root) {
     const isMirror = (left, right) => {
         if (!left && !right) return true
-        if (!left && right || left && !right || left.val !== right.val) return false
+        if (!left || !right || left.val !== right.val) return false
         return isMirror(left.right, right.left) && isMirror(left.left, right.right)
     }
     return isMirror(root.left, root.right) 
