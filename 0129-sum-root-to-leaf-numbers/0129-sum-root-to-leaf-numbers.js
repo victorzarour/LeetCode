@@ -13,7 +13,7 @@
 var sumNumbers = function(root) {
     let sum = 0;
     const dfs = (node, string) => {
-        if (!node) return;
+        if (!node) return ""
         if (!node.left && !node.right){
             string += node.val;
             sum += +(string);
