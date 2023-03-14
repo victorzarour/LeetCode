@@ -13,10 +13,10 @@
 var sumNumbers = function(root) {
     let sum = 0;
     const dfs = (node, string) => {
-        if (!node) return ""
+        if (!node) return "";
         if (!node.left && !node.right){
             string += node.val;
-            sum += +(string);
+            sum += Number(string);
             return;
         }
         dfs(node.left, string + node.val);
@@ -26,16 +26,3 @@ var sumNumbers = function(root) {
     return sum;
 };
 
-    // let res = 0;
-    // const dfs = (node, curString) => {
-    //     if(!node) return;
-    //     if(!node.left && !node.right){
-    //         curString = curString + node.val;
-    //         res = res + +(curString);
-    //         return;
-    //     }
-    //     dfs(node.left,    curString + node.val);
-    //     dfs(node.right,   curString + node.val);
-    // }
-    // dfs(root, '')
-    // return res;
