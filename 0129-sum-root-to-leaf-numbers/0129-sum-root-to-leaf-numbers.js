@@ -11,17 +11,31 @@
  * @return {number}
  */
 var sumNumbers = function(root) {
-    let res = 0;
-    const dfs = (node, curString) => {
-        if(!node) return;
-        if(!node.left && !node.right){
-            curString = curString + node.val;
-            res = res + +(curString);
+    let sum = 0;
+    const dfs = (node, string) => {
+        if (!node) return;
+        if (!node.left && !node.right){
+            string += node.val;
+            sum += +(string);
             return;
         }
-        dfs(node.left,    curString + node.val);
-        dfs(node.right,   curString + node.val);
+        dfs(node.left, string + node.val);
+        dfs(node.right, string + node.val);
     }
     dfs(root, '')
-    return res;
+    return sum;
 };
+
+    // let res = 0;
+    // const dfs = (node, curString) => {
+    //     if(!node) return;
+    //     if(!node.left && !node.right){
+    //         curString = curString + node.val;
+    //         res = res + +(curString);
+    //         return;
+    //     }
+    //     dfs(node.left,    curString + node.val);
+    //     dfs(node.right,   curString + node.val);
+    // }
+    // dfs(root, '')
+    // return res;
