@@ -9,7 +9,7 @@ var addStrings = function(num1, num2) {
     let sum = ""
     let carry = 0
     
-    while (i >= 0 || j >= 0 || carry > 0) {
+    while (i >= 0 || j >= 0) {
         const first = i < 0 ? 0 : num1[i] - "0"
         const second = j < 0 ? 0 : num2[j] - "0"
         const tempSum = first + second + carry
@@ -21,7 +21,7 @@ var addStrings = function(num1, num2) {
         j--
     }
     
-    return sum
+    return carry === 0 ? sum : "1" + sum
 };
 
 
