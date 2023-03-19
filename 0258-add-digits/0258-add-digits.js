@@ -4,10 +4,9 @@
  */
 var addDigits = function(num) {
     num = String(num)
-    let sum
     
     while (num.length > 1) {
-        sum = 0
+        let sum = 0
         for (let digit of num) {
             sum += (digit - "0")
         }
