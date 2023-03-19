@@ -12,5 +12,5 @@ var addDigits = function(num) {
         }
         num = String(sum)
     }
-    return Number(num)
+    return num - "0"
 };
