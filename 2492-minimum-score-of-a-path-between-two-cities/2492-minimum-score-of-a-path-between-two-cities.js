@@ -4,12 +4,15 @@
  * @return {number}
  */
 var minScore = function(n, roads) {
-      const graph = new Array(n + 1).fill().map(() => []);
-      const visited = new Set([]);
+      const graph = {}
+      const visited = new Set([])
 
-      for (const [v1, v2, distance] of roads) {
-        graph[v1].push([v2, distance]);
-        graph[v2].push([v1, distance]);
+      for (const [ a, b, distance ] of roads) {
+        if (!graph[a]) graph[a] = []
+        if (!graph[b]) graph[b] = []
+
+        graph[a].push([b, distance])
+        graph[b].push([a, distance])
       }
 
       const queue = [1];
