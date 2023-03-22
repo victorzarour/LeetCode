@@ -5,7 +5,7 @@
  */
 var minScore = function(n, roads) {
       const graph = {}
-      const visited = new Set([])
+      const visited = new Set()
 
       for (const [ a, b, distance ] of roads) {
         if (!graph[a]) graph[a] = []
