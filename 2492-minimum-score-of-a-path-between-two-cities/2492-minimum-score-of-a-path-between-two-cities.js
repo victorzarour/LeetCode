@@ -15,18 +15,18 @@ var minScore = function(n, roads) {
         graph[b].push([a, distance])
       }
 
-      const queue = [ 1 ];
+      const stack = [ 1 ];
       visited.add(1);
       let ans = Infinity;
 
-      while (queue.length) {
-        const node = queue.pop();
+      while (stack.length) {
+        const node = stack.pop();
         for (const [ next, distance ] of graph[node]) {
           ans = Math.min(ans, distance);
           if (visited.has(next)) continue;
 
           visited.add(next);
-          queue.push(next);
+          stack.push(next);
         }
       }
 
