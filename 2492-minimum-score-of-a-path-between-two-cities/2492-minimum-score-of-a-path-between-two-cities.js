@@ -23,10 +23,10 @@ var minScore = function(n, roads) {
         const node = stack.pop();
         for (const [ next, distance ] of graph[node]) {
           ans = Math.min(ans, distance);
-          if (visited.has(next)) continue;
-
-          visited.add(next);
-          stack.push(next);
+          if (!visited.has(next)) {
+              visited.add(next);
+              stack.push(next);
+          }
         }
       }
 
