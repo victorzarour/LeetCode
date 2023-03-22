@@ -20,7 +20,7 @@ var minScore = function(n, roads) {
       let ans = Infinity;
 
       while (queue.length) {
-        const node = queue.shift();
+        const node = queue.pop();
         for (const [ next, distance ] of graph[node]) {
           ans = Math.min(ans, distance);
           if (visited.has(next)) continue;
