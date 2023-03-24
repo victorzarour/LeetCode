@@ -16,7 +16,7 @@ var arraysIntersection = function(arr1, arr2, arr3) {
     for (let num of arr3) {
         map.set(num, map.get(num) + 1 || 1)
     }
-    console.log(map)
+
     for (let [ key, value ] of map) {
         if (value === 3) array.push(key)
     }
