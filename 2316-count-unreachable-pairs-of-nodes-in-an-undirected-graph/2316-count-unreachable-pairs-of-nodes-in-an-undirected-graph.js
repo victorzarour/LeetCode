@@ -6,13 +6,6 @@
 
 var countPairs = function (n, edges) {
   const graph = buildGraph(edges, n)
-    
-//   for (const [v1, v2] of edges) {
-//     graph[v1].push(v2);
-//     graph[v2].push(v1);
-//   }
-    console.log(graph)
-
   const counts = [],  visited = new Set();
     
   for (let node in graph) {
@@ -22,7 +15,6 @@ var countPairs = function (n, edges) {
     counts.push(count);
   }
 
-console.log(counts)
   let ans = 0, sum = counts[0];
   for (let i = 1; i < counts.length; i++) {
     ans += sum * counts[i];
