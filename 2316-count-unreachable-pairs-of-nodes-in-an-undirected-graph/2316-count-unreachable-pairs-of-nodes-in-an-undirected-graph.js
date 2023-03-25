@@ -33,6 +33,7 @@ var countPairs = function (n, edges) {
 
 function dfs(node, graph, visited) {
   let count = 1;
+    
   for (const child of graph[node]) {
     if (visited.has(child)) continue;
     visited.add(child);
