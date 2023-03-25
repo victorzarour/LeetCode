@@ -6,13 +6,15 @@
 
 var countPairs = function (n, edges) {
   const graph = new Array(n).fill().map((_) => []);
+    
   for (const [v1, v2] of edges) {
     graph[v1].push(v2);
     graph[v2].push(v1);
   }
+    console.log(graph)
 
-  const counts = [];
-  const visited = new Set([]);
+  const counts = [],  visited = new Set();
+    
   for (let i = 0; i < n; i++) {
     if (visited.has(i)) continue;
     visited.add(i);
@@ -20,8 +22,7 @@ var countPairs = function (n, edges) {
     counts.push(count);
   }
 
-  let ans = 0;
-  let sum = counts[0];
+  let ans = 0, sum = counts[0];
   for (let i = 1; i < counts.length; i++) {
     ans += sum * counts[i];
     sum += counts[i];
