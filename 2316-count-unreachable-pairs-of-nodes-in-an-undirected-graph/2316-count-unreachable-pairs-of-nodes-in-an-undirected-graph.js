@@ -3,6 +3,40 @@
  * @param {number[][]} edges
  * @return {number}
  */
+// var countPairs = function(n, edges) {
+//     const graph = {}, visited = new Set()
+    
+//     for (let [ a, b ] of edges) {
+//         if (!graph[a]) graph[a] = []
+//         if (!graph[b]) graph[b] = []
+        
+//         graph[a].push(b)
+//         graph[b].push(a)
+//     }
+    
+//     let count = []
+    
+//     for (let node in graph) {
+//         const num = traverseGraph(graph, node, visited)
+//         count.push(num)
+//     }
+//     console.log(count)
+
+// };
+
+// const traverseGraph = (graph, current, visited) => {
+
+//   let count = 1
+  
+//   for (let neighbor of graph[current]){
+//     if (visited.has(neighbor)) continue
+//     visited.add(neighbor)
+//     count += traverseGraph(graph, neighbor, visited);
+//   }
+  
+//   return count
+// }
+
 
 
 var countPairs = function (n, edges) {
@@ -20,7 +54,7 @@ var countPairs = function (n, edges) {
     const count = dfs(i, graph, visited);
     counts.push(count);
   }
-
+console.log(counts)
   let ans = 0;
   let sum = counts[0];
   for (let i = 1; i < counts.length; i++) {
