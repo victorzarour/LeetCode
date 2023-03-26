@@ -13,12 +13,9 @@ var generate = function(numRows) {
         for (let j = 1; j < row.length - 1; j++){
             let rowAbove = array[i - 1]
             row[j] = rowAbove[j-1] + rowAbove[j]
-            
         }    
-        
         
         array[i] = row
     }
-    
     return array
 };
