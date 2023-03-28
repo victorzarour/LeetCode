@@ -34,5 +34,3 @@ var searchRange = function(nums, target) {
     return [first, last]
 };
 
-
-     
