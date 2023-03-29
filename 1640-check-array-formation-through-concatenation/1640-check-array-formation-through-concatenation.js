@@ -8,7 +8,7 @@ var canFormArray = function(arr, pieces) {
     for (let piece of pieces) {
         map.set(piece[0], piece)
     }
-
+    console.log(map)
     let i = 0
     while (i < arr.length) {
         if (!map.get(arr[i])) return false
