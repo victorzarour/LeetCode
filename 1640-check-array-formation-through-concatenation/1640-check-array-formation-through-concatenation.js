@@ -8,7 +8,7 @@ var canFormArray = function(arr, pieces) {
     while (i < arr.length) {
         let found = -1
         for (let j = 0; j < pieces.length; j++) {
-            if (pieces[j][0] === arr[i]) {
+            if (arr[i] === pieces[j][0]) {
                 found = j
                 break;
             }
