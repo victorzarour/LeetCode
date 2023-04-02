@@ -5,36 +5,41 @@
  * @return {number[]}
  */
 var successfulPairs = function(spells, potions, success) {
-    let res = [];
-    potions.sort((a, b) => b - a);
-    let map = new Map();
-    
-    for(let i = 0; i < spells.length; i++){
-        if (!map.has(spells[i])) {
-            let s = success / spells[i];
-            let len = search(potions, s);
-            res.push(len);
-            map.set(spells[i], len);
-        } else{
-            let len = map.get(spells[i]);
-            res.push(len);
+    // Sort the potions array in increasing order.
+    potions.sort((a, b) => a - b);
+    const answer = [];
+
+    const m = potions.length;
+    const maxPotion = potions[m - 1];
+
+    for (const spell of spells) {
+        // Minimum value of potion whose product with current spell
+        // will be at least success or more.
+        const minPotion = Math.ceil(success / spell);
+        // Check if we don't have any potion which can be used.
+        if (minPotion > maxPotion) {
+            answer.push(0);
+            continue;
         }
+        // We can use the found potion, and all potion in its right
+        // (as the right potions are greater than the found potion).
+        const index = lowerBound(potions, minPotion);
+        answer.push(m - index);
     }
-    return res;
+
+    return answer;
 };
 
-function search(potions, target){
-    let res = 0;
-    let left = 0;
-    let right = potions.length - 1;
-    while(left <= right){
-        let mid = Math.floor((left + right) / 2);
-        if (potions[mid] < target) right = mid - 1;
-        else {
-            left = mid + 1;
-            res = mid + 1;
+// Returns the lower bound of 'key' in the sorted array 'arr'.
+function lowerBound(arr, key) {
+    let low = 0, high = arr.length;
+    while (low < high) {
+        const mid = Math.floor((low + high) / 2);
+        if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid;
         }
     }
-
-    return res;
+    return low;
 };
