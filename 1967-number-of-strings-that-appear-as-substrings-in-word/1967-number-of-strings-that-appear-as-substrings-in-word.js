@@ -9,5 +9,5 @@ var numOfStrings = function(patterns, word) {
     //     if (word.includes(pattern)) count++
     // }
     // return count
-    return patterns.filter(x => word.includes(x)).length
+    return patterns.filter(pattern => word.includes(pattern)).length
 };
