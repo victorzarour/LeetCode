@@ -10,7 +10,6 @@ var countGoodSubstrings = function(s) {
     }
     
     for (let substring of substrings) {
-        console.log(substring)
         if (substring[0] !== substring[1] && substring[1] !== substring[2] && substring[0] !== substring[2]) count++
     }
     return count
